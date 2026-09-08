@@ -1,0 +1,343 @@
+/*
+  STOPAZ Digital Exhibition — museum-grade production layer
+  2026-09-08
+  Presentation/interaction only. Does not rewrite the approved historical argument.
+*/
+
+:root {
+  --exhibit-ink: #f0f0f2;
+  --exhibit-muted: #9b9ba6;
+  --exhibit-rule: rgba(255,255,255,.105);
+  --exhibit-rule-soft: rgba(255,255,255,.055);
+  --exhibit-bg: #17171a;
+  --exhibit-oxblood: #74262d;
+  --exhibit-sans: var(--museum-sans,"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif);
+  --exhibit-serif: var(--museum-serif,"Cormorant Garamond",Georgia,"Times New Roman",serif);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+body { text-rendering: optimizeLegibility; }
+
+/* --- 1. Less interface, more exhibition wall --- */
+.exhibition-section,
+.genealogy-script,
+.chronology-interlude,
+.era-structure-section,
+.naya-source-update { scroll-margin-top: 5.5rem; }
+
+.museum-frame {
+  border-radius: 1px !important;
+  box-shadow: 0 20px 58px rgba(0,0,0,.24) !important;
+}
+
+.info-block:not(.archive-provenance-block),
+.history-panel,
+.era-libel-card,
+.influence-card,
+.naya-archive-card {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.info-block:not(.archive-provenance-block) {
+  background: transparent !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 1px solid var(--exhibit-rule-soft) !important;
+  border-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.history-panel {
+  background: transparent !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-top: 1px solid var(--exhibit-rule-soft) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.era-libels-grid,
+.genealogy-influences-grid {
+  gap: clamp(2rem,4.5vw,5rem) !important;
+}
+
+.era-libel-card,
+.influence-card {
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 1px solid var(--exhibit-rule) !important;
+  padding: 1.15rem 0 0 !important;
+}
+
+.era-libel-card .era-structure-number,
+.influence-card .era-structure-number {
+  opacity: .48;
+}
+
+/* Naya's archive additions read as a catalogue wall, not dashboard cards. */
+.naya-archive-grid {
+  background: transparent !important;
+  border: 0 !important;
+  gap: clamp(3.3rem,7vw,8rem) clamp(2.4rem,5vw,6rem) !important;
+  align-items: start;
+}
+.naya-archive-card {
+  background: transparent !important;
+  padding: 0 !important;
+  border: 0 !important;
+  min-width: 0;
+}
+.naya-archive-card img {
+  background: #101013 !important;
+  margin-bottom: 1.3rem !important;
+  max-height: 68vh !important;
+  box-shadow: 0 22px 58px rgba(0,0,0,.24);
+}
+.naya-archive-card:nth-child(5n+1) { grid-column: 1 / -1; }
+.naya-archive-card:nth-child(5n+1) img { max-height: 78vh !important; }
+.naya-archive-card:nth-child(5n+1) h3 { font-size: clamp(2rem,4vw,3.6rem) !important; }
+
+/* --- 2. Object scale and rhythm --- */
+@media (min-width: 851px) {
+  .exhibition-section.museum-object-wide .exhibition-container {
+    grid-template-columns: minmax(0,1.35fr) minmax(19rem,.65fr) !important;
+  }
+  .exhibition-section.museum-object-tall .exhibition-container {
+    grid-template-columns: minmax(22rem,.82fr) minmax(0,1.18fr) !important;
+  }
+  .exhibition-section.museum-object-small .exhibition-container {
+    grid-template-columns: minmax(18rem,.68fr) minmax(0,1.32fr) !important;
+  }
+  .exhibition-section.museum-object-small .museum-frame {
+    max-width: min(78%, 620px);
+    margin-inline: auto;
+  }
+  .exhibition-section.museum-feature-object {
+    padding-top: clamp(7rem,11vw,11rem) !important;
+    padding-bottom: clamp(7rem,11vw,11rem) !important;
+  }
+}
+
+/* Existing zoom remains, but no portfolio-style push toward the visitor. */
+.art-box.art-in-view .museum-frame img.gallery-image.is-loaded,
+.art-box:hover .museum-frame img.gallery-image.is-loaded,
+.art-box:focus-visible .museum-frame img.gallery-image.is-loaded {
+  transform: scale(1.018) !important;
+}
+.art-box { transform: none !important; }
+
+/* --- 3. Quiet motion after first encounter --- */
+.museum-seen .wave-word,
+.museum-seen.mobile-room-reveal,
+.museum-seen.mobile-room-visible,
+.museum-seen.mobile-room-exit-up,
+.museum-seen.mobile-room-exit-down {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* --- 4. Provenance is discoverable rather than hidden --- */
+.museum-provenance-visible.wall-archive-hidden,
+.museum-provenance-visible.history-wall-hidden {
+  display: block !important;
+}
+.archive-drawer summary {
+  min-height: 44px;
+}
+
+.museum-catalogue-record {
+  margin-top: 1.15rem;
+  border-top: 1px solid var(--exhibit-rule-soft);
+  padding-top: .75rem;
+}
+.museum-catalogue-row {
+  display: grid;
+  grid-template-columns: minmax(6.5rem,.30fr) minmax(0,1fr);
+  gap: .8rem;
+  padding: .55rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.035);
+}
+.museum-catalogue-row:last-child { border-bottom: 0; }
+.museum-catalogue-key {
+  color: #858590;
+  font: 600 .67rem/1.35 var(--exhibit-sans);
+  letter-spacing: .115em;
+  text-transform: uppercase;
+}
+.museum-catalogue-value {
+  color: #d8d8de;
+  font: 400 .88rem/1.48 var(--exhibit-sans);
+  overflow-wrap: anywhere;
+}
+.museum-catalogue-status {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin-top: .75rem;
+  color: #92929d;
+  font: 500 .69rem/1.35 var(--exhibit-sans);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.museum-catalogue-status::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--exhibit-oxblood);
+}
+
+/* --- 5. Permanent object links --- */
+.art-caption-inline { position: relative; }
+.museum-object-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin-inline-start: .25rem;
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,.42);
+  font: 500 .68rem/1 var(--exhibit-sans);
+  letter-spacing: .08em;
+  cursor: pointer;
+  opacity: .24;
+  transition: opacity .25s ease,color .25s ease;
+}
+.art-caption-inline:hover .museum-object-link,
+.museum-object-link:focus-visible { opacity: 1; color: #fff; }
+
+/* --- 6. Museum wayfinding: subtle until requested --- */
+#museum-wayfinder {
+  position: fixed;
+  left: max(.9rem, env(safe-area-inset-left));
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 120;
+  font-family: var(--exhibit-sans);
+}
+#museum-wayfinder .museum-wayfinder-toggle {
+  appearance: none;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 .65rem;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 2px;
+  background: rgba(11,11,14,.68);
+  backdrop-filter: blur(14px);
+  color: rgba(255,255,255,.74);
+  font: 600 .67rem/1 var(--exhibit-sans);
+  letter-spacing: .11em;
+  cursor: pointer;
+}
+#museum-wayfinder .museum-wayfinder-toggle .museum-progress-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin-inline-end: .45rem;
+  background: var(--exhibit-oxblood);
+  vertical-align: middle;
+}
+#museum-wayfinder .museum-wayfinder-panel {
+  position: absolute;
+  left: calc(100% + .55rem);
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  width: min(360px, calc(100vw - 6rem));
+  max-height: min(72vh, 650px);
+  overflow: auto;
+  padding: .55rem;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(10,10,13,.955);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.38);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .24s ease, transform .28s cubic-bezier(.16,1,.3,1), visibility .24s step-end;
+}
+#museum-wayfinder.is-open .museum-wayfinder-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+  transition: opacity .24s ease, transform .28s cubic-bezier(.16,1,.3,1), visibility 0s;
+}
+.museum-wayfinder-heading {
+  padding: .65rem .7rem .75rem;
+  color: #7e7e89;
+  font: 600 .66rem/1.25 var(--exhibit-sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.museum-wayfinder-list { display: flex; flex-direction: column; padding: .25rem 0; }
+.museum-wayfinder-item {
+  appearance: none;
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0,1fr);
+  align-items: baseline;
+  gap: .55rem;
+  width: 100%;
+  min-height: 44px;
+  padding: .58rem .7rem;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.03);
+  background: transparent;
+  color: #aaaab4;
+  text-align: left;
+  cursor: pointer;
+}
+.museum-wayfinder-item:hover,
+.museum-wayfinder-item:focus-visible,
+.museum-wayfinder-item.is-active { color: #fff; background: rgba(255,255,255,.025); }
+.museum-wayfinder-number { color: #6f6f79; font-size: .66rem; letter-spacing: .09em; }
+.museum-wayfinder-label { font: 400 .83rem/1.3 var(--exhibit-sans); }
+.museum-wayfinder-item.is-active .museum-wayfinder-number { color: var(--exhibit-oxblood); }
+
+/* --- 7. Touch/accessibility --- */
+.lang-btn,.audio-btn,.home-btn,.nav-box button,.click-hint,
+#museum-wayfinder button { min-width: 44px !important; min-height: 44px !important; }
+:focus-visible { outline: 2px solid rgba(255,255,255,.9); outline-offset: 3px; }
+
+@media (max-width: 850px) {
+  html { scroll-padding-top: 4.5rem; }
+  .exhibition-section,
+  .genealogy-script,
+  .chronology-interlude,
+  .era-structure-section,
+  .naya-source-update { scroll-margin-top: 4.5rem; }
+
+  .naya-archive-card:nth-child(5n+1) { grid-column: auto; }
+  .naya-archive-card img { max-height: 66svh !important; }
+  .museum-catalogue-row { grid-template-columns: 1fr; gap: .3rem; }
+
+  #museum-wayfinder {
+    left: max(.75rem, env(safe-area-inset-left));
+    top: max(.75rem, env(safe-area-inset-top));
+    transform: none;
+  }
+  #museum-wayfinder .museum-wayfinder-panel {
+    left: 0;
+    top: calc(100% + .5rem);
+    transform: translateY(6px);
+    width: min(360px, calc(100vw - 1.5rem));
+    max-height: 62svh;
+  }
+  #museum-wayfinder.is-open .museum-wayfinder-panel { transform: translateY(0); }
+  #museum-wayfinder .museum-wayfinder-toggle { border-radius: 999px; }
+  .museum-object-link { opacity: .65; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,*::before,*::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}

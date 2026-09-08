@@ -44,8 +44,6 @@
     fitFrame = requestAnimationFrame(() => requestAnimationFrame(fitIdentityTitles));
   }
 
-
-
   function setupMuseumScrollBehavior() {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const revealNodes = [...document.querySelectorAll(
@@ -135,3 +133,27 @@
   else init();
 })();
 
+
+/* Exhibit- museum production layer — Naya Sept. 3 content + 2026-09-08 exhibit UX pass */
+(function loadExhibitProductionLayer(){
+  if (document.querySelector('script[data-exhibit-production-layer]')) return;
+
+  const css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = 'museum-upgrades.css';
+  css.dataset.exhibitProductionLayer = 'styles';
+  document.head.appendChild(css);
+
+  const naya = document.createElement('script');
+  naya.src = 'naya-updates.js';
+  naya.defer = true;
+  naya.dataset.exhibitProductionLayer = 'naya-content';
+  naya.onload = function(){
+    const museum = document.createElement('script');
+    museum.src = 'museum-upgrades.js';
+    museum.defer = true;
+    museum.dataset.exhibitProductionLayer = 'museum-ux';
+    document.head.appendChild(museum);
+  };
+  document.head.appendChild(naya);
+})();
