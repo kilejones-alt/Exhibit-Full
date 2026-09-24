@@ -716,3 +716,13 @@ body.gallery-design #gallery .hero-section {padding-bottom:60px!important}
   body.gallery-design #gallery .art-box img.gallery-image {max-height:min(76svh,620px)!important}
   body.gallery-design #gallery .naya-archive-grid {row-gap:40px!important}
 }
+
+/* Let wrappers follow image height so the next heading never overlaps the artwork. */
+body.gallery-design #gallery :is(.art-box,.art-box .museum-frame,.art-box .responsive-art-picture,.uniform-archive-art) {
+  height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;
+}
+body.gallery-design #gallery .art-box :is(.museum-frame,.responsive-art-picture) {display:block!important;line-height:0!important}
+body.gallery-design #gallery .art-box img {display:block!important}
+@media(max-width:850px) {
+  body.gallery-design #gallery :is(.exhibition-container,.naya-archive-card,.hero-container) {row-gap:40px!important}
+}
