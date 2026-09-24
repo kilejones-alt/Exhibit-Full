@@ -378,6 +378,59 @@
     });
     all('main p br').forEach(br => br.replaceWith(document.createTextNode(' ')));
 
+    // Two natural reading pauses in each long passage; keep all source wording and markup.
+    const thirds = value => {
+      const sentenceEnds = typeof Intl.Segmenter === 'function'
+        ? [...new Intl.Segmenter(document.documentElement.lang || 'en',{granularity:'sentence'}).segment(value)].map(part => part.index + part.segment.length)
+        : [...value.matchAll(/[.!?][\s]+/g)].map(match => match.index + match[0].length).concat(value.length);
+      const ends = sentenceEnds.length >= 3 ? sentenceEnds : [...value.matchAll(/\S+\s*/g)].map(match => match.index + match[0].length);
+      if (ends.length < 3) return null;
+      const closest = (fraction,from,to) => {
+        let best = from;
+        for (let i=from;i<=to;i++) if (Math.abs(ends[i]-value.length*fraction)<Math.abs(ends[best]-value.length*fraction)) best=i;
+        return best;
+      };
+      const first = closest(1/3,0,ends.length-3);
+      const second = closest(2/3,first+1,ends.length-2);
+      return [0,ends[first],ends[second],value.length];
+    };
+    all('main p').forEach(paragraph => {
+      const value = paragraph.textContent;
+      if (value.trim().split(/\s+/).length < 120) return;
+      const cuts = thirds(value);
+      if (!cuts) return;
+      const walker = document.createTreeWalker(paragraph,NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      let node,offset=0;
+      while ((node=walker.nextNode())) { nodes.push({node,start:offset,end:offset+node.length});offset+=node.length; }
+      const point = position => {
+        const part = nodes.find(item => position<=item.end) || nodes[nodes.length-1];
+        return [part.node,position-part.start];
+      };
+      const translated = {};
+      ['en','he','ru','fullText'].forEach(key => {
+        if (!paragraph.dataset[key]) return;
+        const text = paragraph.dataset[key];
+        const breaks = thirds(text);
+        if (breaks) translated[key]=breaks.slice(0,3).map((start,i)=>text.slice(start,breaks[i+1]));
+      });
+      const parts = cuts.slice(0,3).map((start,index) => {
+        const part = paragraph.cloneNode(false);
+        if (index) part.removeAttribute('id');
+        part.removeAttribute('aria-label');
+        const range = document.createRange();
+        range.setStart(...point(start)); range.setEnd(...point(cuts[index+1]));
+        part.append(range.cloneContents());
+        ['en','he','ru','fullText'].forEach(key => {
+          if (translated[key]) part.dataset[key]=translated[key][index];
+          else delete part.dataset[key];
+        });
+        part.classList.add('gallery-reading-paragraph');
+        return part;
+      });
+      paragraph.replaceWith(...parts);
+    });
+
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const text = all('main p,main h2,main h3,main h4,main summary,.art-caption-inline,.hero-header-text,.home-intro,.naya-object-meta');
     // Observe individual blocks so even very long essays enter as soon as their top appears.

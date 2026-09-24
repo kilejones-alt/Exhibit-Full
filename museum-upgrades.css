@@ -723,6 +723,8 @@ body.gallery-design #gallery :is(.art-box,.art-box .museum-frame,.art-box .respo
 }
 body.gallery-design #gallery .art-box :is(.museum-frame,.responsive-art-picture) {display:block!important;line-height:0!important}
 body.gallery-design #gallery .art-box img {display:block!important}
+body.gallery-design :is(#gallery,#main-content) p.gallery-reading-paragraph {margin-bottom:2.1em!important}
+body.gallery-design :is(#gallery,#main-content) p.gallery-reading-paragraph:last-child {margin-bottom:0!important}
 @media(max-width:850px) {
   body.gallery-design #gallery :is(.exhibition-container,.naya-archive-card,.hero-container) {row-gap:40px!important}
 }
