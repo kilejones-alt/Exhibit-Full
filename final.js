@@ -145,7 +145,7 @@
   document.head.appendChild(css);
 
   const naya = document.createElement('script');
-  naya.src = 'naya-updates.js';
+  naya.src = 'naya-updates.js?v=20260924-full-copy';
   naya.defer = true;
   naya.dataset.exhibitProductionLayer = 'naya-content';
   naya.onload = function(){
