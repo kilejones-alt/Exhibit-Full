@@ -237,6 +237,12 @@
       const title = card.querySelector('h3')?.textContent?.trim();
       if (title) push(card,`Archive — ${title}`);
     });
+    // Follow the physical reading order, including the source essays.
+    qsa('.source-antizionism-framework,.era-libel-card').forEach(section => {
+      const title = section.querySelector('h2,h3')?.textContent?.trim();
+      if (title) push(section,title);
+    });
+    stops.sort((a,b) => a.node.compareDocumentPosition(b.node) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1);
     return stops;
   }
 
@@ -266,11 +272,17 @@
       button.className = 'museum-wayfinder-item';
       button.innerHTML = `<span class="museum-wayfinder-number">${String(index+1).padStart(2,'0')}</span><span class="museum-wayfinder-label"></span>`;
       button.querySelector('.museum-wayfinder-label').textContent = stop.label;
-      button.addEventListener('click', () => {
-        stop.node.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
-        history.replaceState(null,'',`#${stop.node.id}`);
+      button.addEventListener('click', async () => {
         nav.classList.remove('is-open');
         toggle.setAttribute('aria-expanded','false');
+        // Resolve target dimensions before jumping across a long, lazily loaded exhibition.
+        await document.fonts?.ready;
+        await Promise.all(qsa('img',stop.node).map(img => {
+          img.loading = 'eager';
+          return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+        }));
+        stop.node.scrollIntoView({behavior:'instant', block:'start'});
+        history.replaceState(null,'',`#${stop.node.id}`);
       });
       list.appendChild(button);
       return button;
@@ -331,4 +343,71 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(init,0), {once:true});
   else setTimeout(init,0);
+})();
+
+/* One visual language for the exhibition and its three-era entrance. */
+(() => {
+  function initGalleryDesign() {
+    if (!document.querySelector('#gallery,.home-main')) return;
+    document.body.classList.add('gallery-design');
+    const all = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+    // Join adjacent prose within each heading. Retain every word and translation.
+    [...new Set(all('main p').map(node => node.parentElement))].forEach(parent => {
+      let first = null;
+      [...parent.children].forEach(child => {
+        if (child.tagName !== 'P' || child.classList.contains('naya-verification')) { first = null; return; }
+        if (!first) { first = child; return; }
+        ['en','he','ru','fullText'].forEach(key => {
+          if (first.dataset[key] && child.dataset[key]) first.dataset[key] += ' ' + child.dataset[key];
+          else delete first.dataset[key];
+        });
+        first.append(document.createTextNode(' '), ...child.childNodes);
+        first.removeAttribute('aria-label');
+        child.remove();
+      });
+    });
+    all('main p br').forEach(br => br.replaceWith(document.createTextNode(' ')));
+
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const text = all('main p,main h2,main h3,main h4,main summary,.art-caption-inline,.hero-header-text,.home-intro,.naya-object-meta');
+    // Observe individual blocks so even very long essays enter as soon as their top appears.
+    const targets = text.filter(node => !text.some(parent => parent !== node && parent.contains(node)));
+    const pictures = all('main img:not(.lightbox-image)');
+    targets.forEach(node => node.classList.add('gallery-reveal'));
+    pictures.forEach(node => node.classList.add('gallery-zoom'));
+    if (reduced.matches || !('IntersectionObserver' in window)) {
+      targets.forEach(node => node.classList.add('is-landed'));
+      pictures.forEach(node => node.classList.add('is-zoomed'));
+      return;
+    }
+    const reveal = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-landed');
+        reveal.unobserve(entry.target);
+      });
+    }, {threshold: 0, rootMargin: '0px 0px -24px 0px'});
+    const zoom = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const img = entry.target;
+        const start = () => {
+          img.classList.add('is-zoomed');
+          zoom.unobserve(img);
+        };
+        if (img.complete) start(); else img.addEventListener('load', start, {once:true});
+      });
+    }, {threshold: .08});
+    document.body.classList.add('gallery-motion-ready');
+    targets.forEach(node => reveal.observe(node));
+    pictures.forEach(node => zoom.observe(node));
+    reduced.addEventListener('change', event => {
+      if (!event.matches) return;
+      reveal.disconnect(); zoom.disconnect();
+      document.body.classList.remove('gallery-motion-ready');
+      pictures.forEach(node => node.classList.add('is-zoomed'));
+    });
+  }
+  setTimeout(initGalleryDesign, 0);
 })();

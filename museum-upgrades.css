@@ -555,3 +555,137 @@ body.exhibition-uniform {
 .exhibition-uniform .info-panel > .art-caption-inline {margin:0 0 1.5rem!important;padding:0!important;display:block!important;text-align:start!important}
 .exhibition-uniform .info-panel .art-caption-title {font:500 var(--uniform-heading)/1.12 var(--exhibit-serif)!important;display:block!important;color:var(--exhibit-ink)!important;margin:0 0 .7rem!important}
 .exhibition-uniform .info-panel .art-caption-date {font:.84rem/1.55 var(--exhibit-sans)!important;letter-spacing:.02em!important;color:#a7a7b0!important}
+
+/* Gallery direction: black walls, ivory type, uninterrupted reading. */
+html:has(body.gallery-design),body.gallery-design {
+  background:#000!important;
+  --exhibit-bg:#000; --museum-bg:#000; --bg:#000;
+  --museum-serif:'Libre Caslon Display',Georgia,serif;
+  --exhibit-serif:'Libre Caslon Display',Georgia,serif;
+  --gallery-prose:'Source Serif 4',Georgia,serif;
+  --editorial-rule:rgba(255,255,255,.16);
+  --exhibit-ink:#f1eee8; --exhibit-muted:#a6a4a0;
+  color:#f1eee8;
+}
+body.gallery-design::before,body.gallery-design::after {display:none!important}
+body.gallery-design :is(#gallery,#main-content) {background:#000!important}
+body.gallery-design :is(#gallery,#main-content) :is(.hero-section,.exhibition-section,.genealogy-script,.era-structure-section,.naya-source-update,.naya-archive-grid,.naya-archive-card,.home-source-context,.info-panel,.info-block,.history-panel,.era-libel-card,.influence-card,.museum-frame,.uniform-archive-art) {
+  background:transparent!important; border:0!important; border-radius:0!important; box-shadow:none!important;
+}
+body.gallery-design :is(#gallery,#main-content) :is(.hero-section,.exhibition-section,.genealogy-script,.era-structure-section,.info-panel,.info-block,.history-panel,.art-box,.museum-frame,.wave-word,.hero-motion-word,.home-title-char,.era-card,.door-rotator,.door-face) {
+  opacity:1!important; visibility:visible!important; transform:none!important; filter:none!important; animation:none!important;
+}
+body.gallery-design :is(#gallery,#main-content) :is(.info-block,.history-panel,.era-libel-card,.influence-card,.hero-header-text)::before,
+body.gallery-design :is(#gallery,#main-content) :is(.info-block,.history-panel,.era-libel-card,.influence-card,.hero-header-text)::after {display:none!important}
+body.gallery-design :is(#gallery,#main-content) :is(h1,h2,h3,h4,.art-caption-title) {
+  font-family:var(--exhibit-serif)!important; font-weight:400!important; color:#f1eee8!important;
+  letter-spacing:-.015em!important; text-transform:none!important; text-shadow:none!important;
+  line-height:1.1!important; text-wrap:balance;
+}
+body.gallery-design :is(#gallery,#main-content) :is(h2,h3,.art-caption-title) {font-size:clamp(2rem,3.2vw,3rem)!important}
+body.gallery-design :is(#gallery,#main-content) h4 {font-size:1.7rem!important;margin:2rem 0 1rem!important}
+body.gallery-design :is(#gallery,#main-content) p {
+  font-family:var(--gallery-prose)!important; font-size:clamp(1.05rem,1.25vw,1.15rem)!important;
+  line-height:1.78!important; font-weight:400!important; letter-spacing:0!important;
+  color:#d1cdc7!important; text-align:start!important; white-space:normal!important;
+  text-wrap:pretty; max-width:68ch!important; margin:0 0 1.5rem!important;
+}
+body.gallery-design :is(#gallery,#main-content) .wave-word {display:inline!important;white-space:normal!important}
+body.gallery-design #gallery .hero-section {padding:110px 0 100px!important;min-height:0!important}
+body.gallery-design #gallery .hero-container {max-width:1240px!important;gap:clamp(36px,5vw,80px)!important;align-items:center!important}
+body.gallery-design #gallery .hero-title {white-space:normal!important;font-size:clamp(3.2rem,6.4vw,6.4rem)!important;line-height:.96!important;margin:22px 0 28px!important}
+body.gallery-design #gallery .hero-subtitle {color:#aaa7a2!important;font-size:.7rem!important;letter-spacing:.16em!important;line-height:1.8!important}
+body.gallery-design #gallery .hero-city {border:0!important;color:#aaa7a2!important}
+body.gallery-design #gallery .exhibition-section {padding:clamp(56px,8vw,112px) 0!important}
+body.gallery-design #gallery :is(.art-box,.museum-frame,.uniform-archive-art) {padding:0!important;overflow:visible!important}
+body.gallery-design #gallery .info-block {padding:0!important;margin:0 0 24px!important;min-height:0!important}
+body.gallery-design #gallery .history-panel {padding:0!important;margin:24px 0 0!important}
+body.gallery-design #gallery .art-caption-inline {margin-bottom:24px!important;padding:0!important;border:0!important}
+body.gallery-design #gallery :is(.info-category,.info-meta,.art-caption-date,.naya-object-meta,.era-structure-kicker,.museum-catalogue-key) {
+  color:#aaa7a2!important;font-family:var(--exhibit-sans)!important;letter-spacing:.06em!important;
+}
+body.gallery-design #gallery .art-caption-date {display:inline-block!important;margin-top:14px!important;font-size:.78rem!important}
+body.gallery-design #gallery .naya-object-meta {font-size:.7rem!important;line-height:1.7!important;margin-bottom:16px!important}
+body.gallery-design #gallery .uniform-archive-copy h3 {margin-bottom:24px!important}
+body.gallery-design #gallery :is(.uniform-archive-details,.naya-archive-guide,.naya-eras-context) {border-color:rgba(255,255,255,.15)!important}
+body.gallery-design #gallery summary {color:#e2ded7!important}
+body.gallery-design #gallery .era-structure-number {color:#aaa7a2!important;font:400 .75rem/1.5 var(--exhibit-sans)!important;letter-spacing:.1em!important}
+body.gallery-design #gallery :is(.genealogy-script-inner,.source-antizionism-framework,.era-structure-inner,.naya-eras-context) {max-width:800px!important}
+body.gallery-design #gallery .genealogy-influences .era-structure-inner {max-width:1120px!important}
+body.gallery-design #gallery .genealogy-script-inner {padding-inline:0!important}
+body.gallery-design #gallery .naya-archive-grid {row-gap:100px!important}
+body.gallery-design .controls-nav {background:#000!important;box-shadow:none!important;backdrop-filter:none!important}
+body.gallery-design .controls-nav :is(.nav-box,.lang-box,.home-btn,.audio-btn,button) {background:transparent!important;box-shadow:none!important;border-color:transparent!important;color:#aaa7a2!important}
+body.gallery-design .controls-nav :is(a,button):hover,body.gallery-design .controls-nav .active {color:#fff!important}
+body.gallery-design #museum-wayfinder {left:16px!important;bottom:20px!important;top:auto!important;transform:none!important}
+body.gallery-design #museum-wayfinder :is(.museum-wayfinder-toggle,.museum-wayfinder-panel) {background:#090909!important;border-color:#333!important;color:#e2ded7!important;box-shadow:none!important}
+body.gallery-design #museum-wayfinder .museum-wayfinder-panel {bottom:48px!important;top:auto!important}
+body.gallery-design #museum-wayfinder .museum-progress-dot {background:#a54b53!important}
+body.gallery-design :focus-visible {outline:2px solid #eee!important;outline-offset:5px!important}
+
+/* The entry remains three equal galleries, with one restrained seven-second red trace. */
+body.gallery-design #main-content.home-main {max-width:1320px!important;padding:100px 48px 80px!important}
+body.gallery-design #main-content .home-intro {margin:0!important;padding:0!important}
+body.gallery-design #main-content .home-title {font-size:clamp(3.8rem,8vw,7.5rem)!important;white-space:normal!important;line-height:1!important}
+body.gallery-design #main-content .desktop-connector {height:68px!important;margin-top:28px!important;opacity:.7!important}
+body.gallery-design #main-content .desktop-connector path {stroke:#913e47!important;stroke-width:1!important;stroke-dasharray:1500;animation:gallery-trace 7s ease-in-out infinite!important;filter:none!important}
+body.gallery-design #main-content .desktop-connector circle {fill:#913e47!important;filter:none!important}
+@keyframes gallery-trace {0%,12%{stroke-dashoffset:1500;opacity:.2}48%,78%{stroke-dashoffset:0;opacity:.8}100%{stroke-dashoffset:0;opacity:.2}}
+body.gallery-design #gallery .hero-container {width:calc(100% - 96px)!important;max-width:1120px!important;margin-inline:auto!important}
+body.gallery-design #main-content .era-card {aspect-ratio:auto!important;overflow:visible!important;border-radius:0!important}
+body.gallery-design #main-content .era-image {background:transparent!important}
+body.gallery-design #main-content .era-arrow {bottom:-38px!important}
+body.gallery-design #gallery .hero-header-text>div:last-child {border:0!important}
+@media(max-width:850px){body.gallery-design #gallery .hero-container{width:calc(100% - 40px)!important}}
+body.gallery-design #main-content .era-grid {gap:32px!important;align-items:start!important;margin-top:0!important}
+body.gallery-design #main-content .era-card {height:auto!important;min-height:0!important;background:transparent!important;border:0!important;box-shadow:none!important;perspective:none!important;padding-bottom:44px!important;position:relative!important}
+body.gallery-design #main-content :is(.era-card,.door-front,.era-image-wrap)::before,
+body.gallery-design #main-content :is(.era-card,.door-front,.era-image-wrap)::after {display:none!important}
+body.gallery-design #main-content :is(.door-rotator,.door-front,.era-inner) {height:auto!important;min-height:0!important;position:relative!important;inset:auto!important;background:transparent!important;border:0!important;box-shadow:none!important}
+body.gallery-design #main-content .era-head {padding:20px 0!important;min-height:0!important;background:transparent!important;border:0!important}
+body.gallery-design #main-content .era-title {font-size:clamp(1.8rem,3vw,2.8rem)!important;margin:0!important}
+body.gallery-design #main-content .era-image-wrap {height:360px!important;background:transparent!important;overflow:visible!important;position:relative!important}
+body.gallery-design #main-content .era-image {width:100%!important;height:100%!important;object-fit:contain!important;filter:none!important;border-radius:0!important}
+body.gallery-design #main-content .era-arrow {position:absolute!important;bottom:0!important;right:0!important;left:auto!important;font:300 30px/1 var(--exhibit-sans)!important;color:#ddd9d2!important;background:none!important;border:0!important;transform:none!important;animation:none!important;opacity:1!important}
+body.gallery-design #main-content .home-source-context {max-width:760px!important;margin:110px auto 0!important;padding:0!important;border:0!important}
+body.gallery-design #main-content .home-source-context h2 {margin:0 0 32px!important}
+body.gallery-design :is(#gallery,#main-content) .era-source-section {margin:64px 0 0!important;padding:0!important;border:0!important}
+body.gallery-design :is(#gallery,#main-content) .era-source-section h3 {margin:0 0 24px!important}
+
+/* Retire per-word and per-box effects in favour of one shared entrance. */
+body.gallery-design #gallery .exhibition-container {width:calc(100% - 96px)!important;margin-inline:auto!important}
+body.gallery-design #gallery .era-libels-grid {display:block!important;overflow:visible!important;width:100%!important}
+body.gallery-design #gallery .era-libel-card {width:100%!important;min-width:0!important;max-width:none!important;padding:0!important;margin:0 0 72px!important}
+body.gallery-design #gallery img.gallery-zoom {background:transparent!important}
+body.gallery-design #main-content .era-grid::before,body.gallery-design #main-content .era-grid::after {display:none!important}
+body.gallery-design.gallery-motion-ready :is(#gallery,#main-content) .gallery-reveal {
+  opacity:0!important;transform:translateY(18px)!important;filter:none!important;animation:none!important;
+  transition:opacity .8s ease,transform .9s cubic-bezier(.2,.65,.3,1)!important;
+}
+body.gallery-design.gallery-motion-ready :is(#gallery,#main-content) .gallery-reveal.is-landed {opacity:1!important;transform:translateY(0)!important}
+body.gallery-design :is(#gallery,#main-content) img.gallery-zoom {
+  animation:none!important;transform:none!important;scale:.96;transform-origin:center;
+  transition:scale 5s cubic-bezier(.2,.55,.35,1)!important;filter:none!important;
+}
+body.gallery-design :is(#gallery,#main-content) img.gallery-zoom.is-zoomed {scale:1}
+@media(max-width:850px) {
+  body.gallery-design #gallery .hero-section {padding:132px 0 60px!important}
+  body.gallery-design #gallery .hero-title {font-size:clamp(3rem,11vw,4.5rem)!important}
+  body.gallery-design #gallery .hero-container {gap:36px!important}
+  body.gallery-design #gallery .exhibition-container {width:calc(100% - 40px)!important;gap:32px!important}
+  body.gallery-design #gallery .naya-archive-grid {row-gap:64px!important}
+  body.gallery-design #main-content.home-main {padding:100px 24px 64px!important}
+  body.gallery-design #main-content .era-grid {grid-template-columns:1fr!important;gap:48px!important;margin-top:40px!important;padding:0!important}
+  body.gallery-design #main-content .era-image-wrap {height:420px!important;max-height:60svh!important}
+  body.gallery-design #main-content .era-title {font-size:2.5rem!important}
+  body.gallery-design #main-content .desktop-connector {display:none!important}
+  body.gallery-design #main-content .mobile-node {display:none!important}
+  body.gallery-design #main-content .era-card {margin:0!important}
+  body.gallery-design #main-content .home-source-context {margin-top:80px!important}
+  body.gallery-design :is(#gallery,#main-content) p {font-size:1.05rem!important;line-height:1.75!important}
+}
+@media(prefers-reduced-motion:reduce) {
+  body.gallery-design :is(#gallery,#main-content) .gallery-reveal {opacity:1!important;transform:none!important;transition:none!important}
+  body.gallery-design :is(#gallery,#main-content) img.gallery-zoom {scale:1!important;transition:none!important}
+  body.gallery-design #main-content .desktop-connector path {animation:none!important;stroke-dashoffset:0!important}
+}
