@@ -136,11 +136,18 @@
 
 /* Exhibit- museum production layer — Naya Sept. 3 content + 2026-09-08 exhibit UX pass */
 (function loadExhibitProductionLayer(){
+  document.querySelectorAll('.mosque-transition-section').forEach(section => section.remove());
+  if (!document.querySelector('link[href*="family=EB+Garamond"]')) {
+    const fonts = document.createElement('link');
+    fonts.rel = 'stylesheet';
+    fonts.href = 'https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Libre+Caslon+Display&display=swap';
+    document.head.appendChild(fonts);
+  }
   if (document.querySelector('script[data-exhibit-production-layer]')) return;
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'museum-upgrades.css?v=20260924-gallery';
+  css.href = 'museum-upgrades.css?v=20260924-garamond';
   css.dataset.exhibitProductionLayer = 'styles';
   document.head.appendChild(css);
 
@@ -150,7 +157,7 @@
   naya.dataset.exhibitProductionLayer = 'naya-content';
   naya.onload = function(){
     const museum = document.createElement('script');
-    museum.src = 'museum-upgrades.js?v=20260924-gallery';
+    museum.src = 'museum-upgrades.js?v=20260924-garamond';
     museum.defer = true;
     museum.dataset.exhibitProductionLayer = 'museum-ux';
     document.head.appendChild(museum);

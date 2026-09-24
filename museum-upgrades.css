@@ -562,7 +562,7 @@ html:has(body.gallery-design),body.gallery-design {
   --exhibit-bg:#000; --museum-bg:#000; --bg:#000;
   --museum-serif:'Libre Caslon Display',Georgia,serif;
   --exhibit-serif:'Libre Caslon Display',Georgia,serif;
-  --gallery-prose:'Source Serif 4',Georgia,serif;
+  --gallery-prose:'EB Garamond',Garamond,Georgia,serif;
   --editorial-rule:rgba(255,255,255,.16);
   --exhibit-ink:#f1eee8; --exhibit-muted:#a6a4a0;
   color:#f1eee8;
@@ -585,8 +585,8 @@ body.gallery-design :is(#gallery,#main-content) :is(h1,h2,h3,h4,.art-caption-tit
 body.gallery-design :is(#gallery,#main-content) :is(h2,h3,.art-caption-title) {font-size:clamp(2rem,3.2vw,3rem)!important}
 body.gallery-design :is(#gallery,#main-content) h4 {font-size:1.7rem!important;margin:2rem 0 1rem!important}
 body.gallery-design :is(#gallery,#main-content) p {
-  font-family:var(--gallery-prose)!important; font-size:clamp(1.05rem,1.25vw,1.15rem)!important;
-  line-height:1.78!important; font-weight:400!important; letter-spacing:0!important;
+  font-family:var(--gallery-prose)!important; font-size:clamp(1.2rem,1.6vw,1.3rem)!important;
+  line-height:1.65!important; font-weight:400!important; letter-spacing:0!important;
   color:#d1cdc7!important; text-align:start!important; white-space:normal!important;
   text-wrap:pretty; max-width:68ch!important; margin:0 0 1.5rem!important;
 }
@@ -682,10 +682,13 @@ body.gallery-design :is(#gallery,#main-content) img.gallery-zoom.is-zoomed {scal
   body.gallery-design #main-content .mobile-node {display:none!important}
   body.gallery-design #main-content .era-card {margin:0!important}
   body.gallery-design #main-content .home-source-context {margin-top:80px!important}
-  body.gallery-design :is(#gallery,#main-content) p {font-size:1.05rem!important;line-height:1.75!important}
+  body.gallery-design :is(#gallery,#main-content) p {font-size:1.2rem!important;line-height:1.65!important}
 }
 @media(prefers-reduced-motion:reduce) {
   body.gallery-design :is(#gallery,#main-content) .gallery-reveal {opacity:1!important;transform:none!important;transition:none!important}
   body.gallery-design :is(#gallery,#main-content) img.gallery-zoom {scale:1!important;transition:none!important}
   body.gallery-design #main-content .desktop-connector path {animation:none!important;stroke-dashoffset:0!important}
 }
+
+/* Retired film: also suppress the section in older cached HTML. */
+.mosque-transition-section,video[src*="video-mosque"]{display:none!important}
