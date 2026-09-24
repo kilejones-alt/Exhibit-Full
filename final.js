@@ -147,7 +147,7 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'museum-upgrades.css?v=20260924-reading';
+  css.href = 'museum-upgrades.css?v=20260924-room-row';
   css.dataset.exhibitProductionLayer = 'styles';
   document.head.appendChild(css);
 
@@ -157,7 +157,7 @@
   naya.dataset.exhibitProductionLayer = 'naya-content';
   naya.onload = function(){
     const museum = document.createElement('script');
-    museum.src = 'museum-upgrades.js?v=20260924-reading';
+    museum.src = 'museum-upgrades.js?v=20260924-room-row';
     museum.defer = true;
     museum.dataset.exhibitProductionLayer = 'museum-ux';
     document.head.appendChild(museum);

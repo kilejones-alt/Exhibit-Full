@@ -725,6 +725,17 @@ body.gallery-design #gallery .art-box :is(.museum-frame,.responsive-art-picture)
 body.gallery-design #gallery .art-box img {display:block!important}
 body.gallery-design :is(#gallery,#main-content) p.gallery-reading-paragraph {margin-bottom:2.1em!important}
 body.gallery-design :is(#gallery,#main-content) p.gallery-reading-paragraph:last-child {margin-bottom:0!important}
+/* Keep all three room entrances together in desktop and tablet browser panels. */
+@media(min-width:601px) {
+  body.gallery-design #main-content .era-grid {
+    display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:clamp(14px,2.5vw,32px)!important;margin-top:0!important;direction:ltr;
+  }
+  body.gallery-design #main-content .era-card {min-width:0!important;grid-column:auto!important;grid-row:auto!important}
+  body.gallery-design #main-content .era-title {font-size:clamp(1.4rem,3vw,2.8rem)!important}
+  body.gallery-design #main-content .era-image-wrap {height:clamp(240px,35vw,360px)!important;max-height:none!important}
+  body.gallery-design #main-content .desktop-connector {display:block!important}
+}
 @media(max-width:850px) {
   body.gallery-design #gallery :is(.exhibition-container,.naya-archive-card,.hero-container) {row-gap:40px!important}
 }
