@@ -147,7 +147,7 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'museum-upgrades.css?v=20260924-languages-music';
+  css.href = 'museum-upgrades.css?v=20260924-hover-zoom';
   css.dataset.exhibitProductionLayer = 'styles';
   document.head.appendChild(css);
 

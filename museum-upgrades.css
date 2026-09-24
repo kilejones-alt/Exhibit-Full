@@ -751,3 +751,18 @@ body.gallery-design #main-content .era-card.antizionism .era-image {
 @media(max-width:850px) {
   body.gallery-design #gallery :is(.exhibition-container,.naya-archive-card,.hero-container) {row-gap:40px!important}
 }
+
+/* A slow camera move on every artwork, without moving captions or adjacent pieces. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap) {
+    overflow:hidden!important;
+  }
+  body.gallery-design :is(#gallery,#main-content) img.gallery-zoom {
+    transform-origin:center!important;
+    transition:scale 5s cubic-bezier(.2,.55,.35,1)!important;
+  }
+  body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap):hover img.gallery-zoom,
+  body.gallery-design :is(#gallery,#main-content) img.gallery-zoom:hover {
+    scale:1.045!important;
+  }
+}
