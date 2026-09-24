@@ -692,3 +692,27 @@ body.gallery-design :is(#gallery,#main-content) img.gallery-zoom.is-zoomed {scal
 
 /* Retired film: also suppress the section in older cached HTML. */
 .mosque-transition-section,video[src*="video-mosque"]{display:none!important}
+
+/* Keep the artwork on the same black wall, without a full-width button panel. */
+body.gallery-design {--uniform-space:clamp(32px,4vw,64px)}
+body.gallery-design #gallery .exhibition-section {padding:clamp(32px,4vw,64px) 0!important}
+body.gallery-design #gallery .art-box {
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  border-radius:0!important;--art-height:560px;
+  width:min(100%,var(--art-native-width,100%),calc(var(--art-height) * var(--art-ratio,1)))!important;max-width:100%!important;
+  min-height:0!important;display:block!important;margin-inline:auto!important;
+}
+body.gallery-design #gallery .art-box::before,body.gallery-design #gallery .art-box::after {display:none!important}
+body.gallery-design #gallery .art-box :is(.museum-frame,.responsive-art-picture) {
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  width:100%!important;max-width:100%!important;margin-inline:auto!important;
+}
+body.gallery-design #gallery .art-box img.gallery-image {width:100%!important;height:auto!important;max-width:100%!important}
+body.gallery-design #gallery .naya-archive-grid {row-gap:64px!important}
+body.gallery-design #gallery .hero-section {padding-bottom:60px!important}
+@media(max-width:850px) {
+  body.gallery-design #gallery .exhibition-container {gap:24px!important}
+  body.gallery-design #gallery .art-box {--art-height:min(76svh,620px)}
+  body.gallery-design #gallery .art-box img.gallery-image {max-height:min(76svh,620px)!important}
+  body.gallery-design #gallery .naya-archive-grid {row-gap:40px!important}
+}

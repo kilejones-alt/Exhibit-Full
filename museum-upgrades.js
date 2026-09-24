@@ -351,6 +351,15 @@
     if (!document.querySelector('#gallery,.home-main')) return;
     document.body.classList.add('gallery-design');
     const all = (selector, root = document) => [...root.querySelectorAll(selector)];
+    // Reserve each artwork's proportions before lazy loading, without letterbox panels.
+    all('.art-box img').forEach(img => {
+      const width = Number(img.dataset.nativeWidth || img.getAttribute('width')) || img.naturalWidth;
+      const height = Number(img.dataset.nativeHeight || img.getAttribute('height')) || img.naturalHeight;
+      if (!width || !height) return;
+      const frame = img.closest('.art-box');
+      frame.style.setProperty('--art-ratio',String(width / height));
+      frame.style.setProperty('--art-native-width',width + 'px');
+    });
 
     // Join adjacent prose within each heading. Retain every word and translation.
     [...new Set(all('main p').map(node => node.parentElement))].forEach(parent => {
