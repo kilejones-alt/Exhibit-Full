@@ -140,7 +140,7 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'museum-upgrades.css';
+  css.href = 'museum-upgrades.css?v=20260924-uniform';
   css.dataset.exhibitProductionLayer = 'styles';
   document.head.appendChild(css);
 
@@ -150,7 +150,7 @@
   naya.dataset.exhibitProductionLayer = 'naya-content';
   naya.onload = function(){
     const museum = document.createElement('script');
-    museum.src = 'museum-upgrades.js';
+    museum.src = 'museum-upgrades.js?v=20260924-uniform';
     museum.defer = true;
     museum.dataset.exhibitProductionLayer = 'museum-ux';
     document.head.appendChild(museum);

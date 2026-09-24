@@ -182,6 +182,40 @@
     });
   }
 
+  function unifyExhibitionLayout() {
+    if (!/exhibition\.html$/i.test(location.pathname)) return;
+    document.body.classList.add('exhibition-uniform');
+    qsa('.exhibition-section').forEach(section => {
+      const caption = section.querySelector('.art-caption-inline');
+      const panel = section.querySelector('.info-panel');
+      if (caption && panel) panel.prepend(caption);
+    });
+    qsa('.naya-archive-card').forEach(card => {
+      if (card.querySelector('.uniform-archive-art')) return;
+      const img = card.querySelector('img');
+      const record = card.querySelector('.museum-catalogue-record');
+      if (!img || !record) return;
+      const art = document.createElement('figure');
+      art.className = 'uniform-archive-art';
+      art.appendChild(img);
+      const copy = document.createElement('div');
+      copy.className = 'uniform-archive-copy';
+      const duplicateObjectRow = record.querySelector('.museum-catalogue-row');
+      const caption = card.querySelector('p:not(.naya-verification)');
+      if (duplicateObjectRow?.querySelector('.museum-catalogue-value')?.textContent === caption?.textContent) {
+        duplicateObjectRow.remove();
+      }
+      const details = document.createElement('details');
+      details.className = 'uniform-archive-details';
+      const summary = document.createElement('summary');
+      summary.textContent = 'Creator, context & archive';
+      details.append(summary, record);
+      while (card.firstChild) copy.appendChild(card.firstChild);
+      copy.appendChild(details);
+      card.append(art, copy);
+    });
+  }
+
   function collectStops() {
     const stops = [];
     const push = (node,label) => {
@@ -290,6 +324,7 @@
     makeMotionOneWay();
     revealUsefulProvenance();
     addNayaCatalogueFields();
+    unifyExhibitionLayout();
     labelThirdEraAsAbout();
     installWayfinder();
   }

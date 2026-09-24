@@ -341,3 +341,217 @@ body { text-rendering: optimizeLegibility; }
   html { scroll-behavior: auto; }
   *,*::before,*::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
+/* Shared presentation for the exhibition timeline, essays, and archive. */
+body.exhibition-uniform {
+  --uniform-width: 1120px;
+  --uniform-reading: 760px;
+  --uniform-gutter: clamp(20px, 4vw, 56px);
+  --uniform-gap: clamp(32px, 5vw, 72px);
+  --uniform-space: clamp(56px, 7vw, 96px);
+  --uniform-heading: clamp(2rem, 3vw, 2.65rem);
+}
+.exhibition-uniform :is(.exhibition-section,.genealogy-script,.era-structure-section) {
+  padding: var(--uniform-space) var(--uniform-gutter)!important;
+  min-height: 0!important;
+}
+.exhibition-uniform .naya-source-update {
+  box-sizing: border-box;
+  max-width: calc(var(--uniform-width) + 2 * var(--uniform-gutter));
+  margin: 0 auto;
+  padding: var(--uniform-space) var(--uniform-gutter);
+}
+.exhibition-uniform :is(.exhibition-container,.era-structure-inner,.genealogy-script-inner) {
+  max-width: var(--uniform-width)!important;
+  width: 100%!important;
+  margin-inline: auto!important;
+}
+.exhibition-uniform .exhibition-section .exhibition-container {
+  display: grid!important;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr)!important;
+  gap: var(--uniform-gap)!important;
+  align-items: start!important;
+}
+.exhibition-uniform .exhibition-section .exhibit-art-column,
+.exhibition-uniform .exhibition-section .exhibition-container > .art-box {
+  grid-column: 1!important;
+  grid-row: 1!important;
+  width: 100%!important;
+  max-width: none!important;
+  margin: 0!important;
+}
+.exhibition-uniform .exhibition-section .info-panel {
+  grid-column: 2!important;
+  grid-row: 1!important;
+  width: 100%!important;
+  padding: 0!important;
+  height: auto!important;
+  max-height: none!important;
+  overflow: visible!important;
+}
+.exhibition-uniform .timeline-section::before,
+.exhibition-uniform .timeline-section::after,
+.exhibition-uniform .timeline-section .exhibition-container::after {display:none!important}
+.exhibition-uniform .exhibition-section .art-box {
+  width: 100%!important;
+  max-width: none!important;
+  border-radius: 0!important;
+}
+.exhibition-uniform .exhibition-section .museum-frame {
+  width: 100%!important;
+  max-width: 100%!important;
+  margin: 0!important;
+  padding: 16px!important;
+  box-sizing: border-box;
+}
+.exhibition-uniform .exhibition-section .museum-frame img {
+  max-height: 560px!important;
+  object-fit: contain!important;
+  transform: none!important;
+}
+.exhibition-uniform :is(.info-panel,.genealogy-script-copy,.era-libel-card,.naya-source-update) p {
+  font-family: var(--exhibit-sans)!important;
+  font-size: 1.025rem!important;
+  font-weight: 400!important;
+  line-height: 1.7!important;
+  letter-spacing: 0!important;
+  color: #d1d1d7!important;
+  margin: 0 0 1.15rem!important;
+  max-width: none!important;
+  text-align: start!important;
+}
+.exhibition-uniform :is(.info-title,.genealogy-script-copy h3,.era-libel-card h3,.naya-source-update h2,.naya-archive-card h3),
+.exhibition-uniform .naya-eras-context > details > summary {
+  font: 500 var(--uniform-heading)/1.12 var(--exhibit-serif)!important;
+  letter-spacing: 0!important;
+  color: var(--exhibit-ink)!important;
+  text-transform: none!important;
+  margin: 0 0 1.5rem!important;
+  padding: 0!important;
+  text-align: start!important;
+}
+.exhibition-uniform :is(.genealogy-script-copy h3,.info-title)::before {display:none!important}
+.exhibition-uniform :is(.genealogy-script-copy,.genealogy-marker .genealogy-script-copy) {
+  max-width: var(--uniform-reading)!important;
+  width: 100%!important;
+  margin-inline: auto!important;
+  text-align: start!important;
+}
+.exhibition-uniform .genealogy-video-section .genealogy-script-copy {
+  max-width: none!important;
+}
+.exhibition-uniform .genealogy-video-section .genealogy-video-inner {
+  gap: var(--uniform-gap)!important;
+  align-items: start!important;
+}
+.exhibition-uniform .source-antizionism-framework > *,
+.exhibition-uniform .naya-eras-context > details,
+.exhibition-uniform .era-libel-card,
+.exhibition-uniform .era-libels-conclusion,
+.exhibition-uniform .naya-archive-update > :not(.naya-archive-grid) {
+  width: 100%!important;
+  max-width: var(--uniform-reading)!important;
+  margin-inline: auto!important;
+  box-sizing: border-box;
+}
+.exhibition-uniform .naya-source-update h3:not(.naya-archive-card h3) {
+  font: 500 clamp(1.65rem,2.2vw,2rem)/1.2 var(--exhibit-serif);
+  margin: 2rem 0 1rem;
+}
+.exhibition-uniform :is(.era-libel-card h4,.info-block h4,.history-panel h4) {
+  font: 600 .75rem/1.4 var(--exhibit-sans)!important;
+  letter-spacing: .1em!important;
+  text-transform: uppercase;
+  margin: 1.5rem 0 .8rem!important;
+}
+.exhibition-uniform .era-libels-grid {gap:var(--uniform-space)!important}
+.exhibition-uniform .era-libel-card {padding-top:1.5rem!important}
+.exhibition-uniform .era-structure-number {display:block;margin-bottom:.85rem}
+.exhibition-uniform .naya-section-links {gap:.65rem 1.5rem;margin-top:1.8rem!important}
+.exhibition-uniform .naya-section-links a {font-size:.9rem;text-decoration-thickness:1px;text-underline-offset:6px}
+.exhibition-uniform .naya-archive-grid {
+  display: grid;
+  grid-template-columns: 1fr!important;
+  gap: var(--uniform-space)!important;
+  margin-top: 3rem;
+}
+.exhibition-uniform .naya-archive-card,
+.exhibition-uniform .naya-archive-card:nth-child(5n+1) {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: var(--uniform-gap);
+  grid-column: auto;
+  padding-top: 2rem!important;
+  border-top: 1px solid var(--exhibit-rule)!important;
+  align-items: start;
+}
+.exhibition-uniform .uniform-archive-art {
+  margin: 0;
+  padding: 16px;
+  background: #141417;
+  border: 1px solid var(--exhibit-rule);
+  box-sizing: border-box;
+}
+.exhibition-uniform .naya-archive-card .uniform-archive-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px!important;
+  object-fit: contain;
+  margin: 0!important;
+  box-shadow: none;
+}
+.exhibition-uniform .uniform-archive-copy {min-width:0}
+.exhibition-uniform .naya-archive-card .naya-object-meta {
+  display: block;
+  font: 400 .84rem/1.55 var(--exhibit-sans);
+  letter-spacing: .02em;
+  text-transform: none;
+  color: #a7a7b0;
+  margin-bottom: 1rem;
+}
+.exhibition-uniform .naya-object-meta span {display:block}
+.exhibition-uniform .naya-object-meta span:first-child {
+  font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem;
+}
+.exhibition-uniform .naya-archive-card .naya-verification {font-size:.84rem!important;color:#a7a7b0!important}
+.exhibition-uniform .uniform-archive-details {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--exhibit-rule);
+  border-bottom: 1px solid var(--exhibit-rule);
+}
+.exhibition-uniform :is(.uniform-archive-details,.naya-archive-guide) > summary {
+  cursor:pointer;
+  min-height:44px;
+  padding:14px 0;
+  box-sizing:border-box;
+  font:600 .74rem/1.5 var(--exhibit-sans);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#bdbdc7;
+}
+.exhibition-uniform .uniform-archive-details .museum-catalogue-record {border:0;margin:0;padding:0 0 1rem}
+.exhibition-uniform .uniform-archive-details .museum-catalogue-value {font-size:.92rem;line-height:1.6}
+.exhibition-uniform .exhibition-section .info-panel > .info-block,
+.exhibition-uniform .exhibition-section .history-panel {
+  background:transparent!important;
+  padding:1rem 0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+@media(max-width:850px) {
+  .exhibition-uniform {--uniform-space:56px;--uniform-gap:24px}
+  .exhibition-uniform .exhibition-section .exhibition-container,
+  .exhibition-uniform .naya-archive-card {display:grid!important;grid-template-columns:1fr!important}
+  .exhibition-uniform .exhibition-section .info-panel {grid-column:1!important;grid-row:2!important}
+  .exhibition-uniform .exhibition-section .exhibit-art-column {grid-column:1!important;grid-row:1!important}
+  .exhibition-uniform :is(.naya-archive-card,.naya-archive-card:nth-child(5n+1)) h3 {font-size:var(--uniform-heading)!important}
+  .exhibition-uniform .naya-source-update {width:100%;padding-inline:var(--uniform-gutter)}
+  .exhibition-uniform :is(.info-panel,.genealogy-script-copy,.era-libel-card,.naya-source-update) p {font-size:1rem!important;line-height:1.65!important}
+  .exhibition-uniform .exhibition-section .museum-frame img,
+  .exhibition-uniform .naya-archive-card .uniform-archive-art img {max-height:65svh!important}
+}
+
+.exhibition-uniform .info-panel > .art-caption-inline {margin:0 0 1.5rem!important;padding:0!important;display:block!important;text-align:start!important}
+.exhibition-uniform .info-panel .art-caption-title {font:500 var(--uniform-heading)/1.12 var(--exhibit-serif)!important;display:block!important;color:var(--exhibit-ink)!important;margin:0 0 .7rem!important}
+.exhibition-uniform .info-panel .art-caption-date {font:.84rem/1.55 var(--exhibit-sans)!important;letter-spacing:.02em!important;color:#a7a7b0!important}
