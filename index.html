@@ -48,13 +48,15 @@
 .home-page .exhibition-announcement{display:none !important;}
 </style>
 <link href="final.css" rel="stylesheet"/>
-<link rel="stylesheet" href="room-entry.css?v=20260924-portals"/>
+<link rel="stylesheet" href="room-entry.css?v=20260924-languages-music"/>
 <script src="room-entry.js?v=20260924-portals"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Noto+Serif+Hebrew:wght@400;500&display=swap"/>
+<script src="gallery-audio.js?v=20260924-languages-music"></script>
 </head>
 <body class="new-page home-page">
 <a class="skip-link" href="#main-content" data-en="Skip to main content" data-he="דילוג לתוכן הראשי" data-ru="Перейти к основному содержанию">Skip to main content</a>
 <div aria-hidden="true" id="ambient-light"></div>
-<audio id="bg-audio" loop="" preload="none" src="The Seasons, Op. 37a - VI. June_ Barcarolle.mp3"></audio>
+<audio id="bg-audio" loop preload="metadata" src="lacrymosa-piano.mp3"></audio>
 <a aria-label="Stop Antizionism home" data-aria-en="Stop Antizionism home" data-aria-he="דף הבית של Stop Antizionism" data-aria-ru="Главная Stop Antizionism" class="site-brand-link" href="index.html">
 <img alt="Stop Antizionism" class="site-brand" decoding="async" fetchpriority="auto" height="292" loading="eager" src="stop-antizionism-logo.webp" width="2048"/>
 </a>
@@ -62,8 +64,8 @@
 <div class="nav-box"><button aria-pressed="false" class="audio-btn" id="audio-btn" type="button">AUDIO: OFF</button></div>
 <div class="nav-box">
 <button class="lang-btn active" aria-label="Switch language to English" data-aria-en="Switch language to English" data-aria-he="החלפת השפה לאנגלית" data-aria-ru="Переключить язык на английский" id="btn-en" type="button">EN</button><span class="nav-separator">|</span>
-<button class="lang-btn" aria-label="Switch language to Hebrew" data-aria-en="Switch language to Hebrew" data-aria-he="החלפת השפה לעברית" data-aria-ru="Переключить язык на иврит" id="btn-he" type="button">HE</button><span class="nav-separator">|</span>
-<button class="lang-btn" aria-label="Switch language to Russian" data-aria-en="Switch language to Russian" data-aria-he="החלפת השפה לרוסית" data-aria-ru="Переключить язык на русский" id="btn-ru" type="button">RU</button>
+<button class="lang-btn" aria-label="Switch language to Hebrew" data-aria-en="Switch language to Hebrew" data-aria-he="החלפת השפה לעברית" data-aria-ru="Переключить язык на иврит" id="btn-he" type="button">עברית</button><span class="nav-separator">|</span>
+<button class="lang-btn" aria-label="Switch language to Russian" data-aria-en="Switch language to Russian" data-aria-he="החלפת השפה לרוסית" data-aria-ru="Переключить язык на русский" id="btn-ru" type="button">Русский</button>
 </div>
 </nav>
 <main class="home-main" id="main-content" tabindex="-1">
@@ -77,7 +79,7 @@
 </svg>
 </header>
 <section id="rooms" aria-label="Three eras of Jew-hatred" class="era-grid">
-<a aria-label="Open Antijudaism gallery" class="era-card historical-threshold" data-aria-en="Open Antijudaism gallery" data-aria-he="פתיחת גלריית אנטי-יהדות" data-aria-ru="Открыть галерею: Антииудаизм" href="antijudaism.html?v=20260924-portals-live" style="--door-image:url('home-antijudaism-1280.webp')">
+<a aria-label="Open Antijudaism gallery" class="era-card historical-threshold" data-aria-en="Open Antijudaism gallery" data-aria-he="פתיחת גלריית אנטי-יהדות" data-aria-ru="Открыть галерею: Антииудаизм" href="antijudaism.html?v=20260924-music-rooms" style="--door-image:url('home-antijudaism-1280.webp')">
 <span aria-hidden="true" class="mobile-node"></span>
 <div class="door-rotator">
 <div class="door-face door-front">
@@ -89,7 +91,7 @@
 </div>
 </div>
 </a>
-<a aria-label="Open Antisemitism gallery" class="era-card historical-threshold" data-aria-en="Open Antisemitism gallery" data-aria-he="פתיחת גלריית אנטישמיות" data-aria-ru="Открыть галерею: Антисемитизм" href="antisemitism.html?v=20260924-portals-live" style="--door-image:url('home-antisemitism-1280.webp')">
+<a aria-label="Open Antisemitism gallery" class="era-card historical-threshold" data-aria-en="Open Antisemitism gallery" data-aria-he="פתיחת גלריית אנטישמיות" data-aria-ru="Открыть галерею: Антисемитизм" href="antisemitism.html?v=20260924-music-rooms" style="--door-image:url('home-antisemitism-1280.webp')">
 <span aria-hidden="true" class="mobile-node"></span>
 <div class="door-rotator">
 <div class="door-face door-front">
@@ -101,7 +103,7 @@
 </div>
 </div>
 </a>
-<a aria-label="Open Antizionism gallery" class="era-card antizionism historical-threshold" data-aria-en="Open Antizionism gallery" data-aria-he="פתיחת גלריית אנטי-ציונות" data-aria-ru="Открыть галерею: Антисионизм" href="exhibition.html?v=20260924-portals-live" style="--door-image:url('door-antizionism-stalin-637.webp')">
+<a aria-label="Open Antizionism gallery" class="era-card antizionism historical-threshold" data-aria-en="Open Antizionism gallery" data-aria-he="פתיחת גלריית אנטי-ציונות" data-aria-ru="Открыть галерею: Антисионизм" href="exhibition.html?v=20260924-music-rooms" style="--door-image:url('door-antizionism-stalin-637.webp')">
 <span aria-hidden="true" class="mobile-node"></span>
 <div class="door-rotator">
 <div class="door-face door-front">
@@ -129,7 +131,7 @@
 <p data-en="The postwar world supplied another language. The empire was collapsing. National liberation movements were overturning colonial rule. Racism had become one of the defining evils of the postwar order. Apartheid stood for legalized racial domination. Genocide named humanity's ultimate crime. Within this, the Jew was recast as the Zionist. Jewish power became Zionist influence. Jewish conspiracy became the Zionist lobby. Jewish bloodlust became the deliberate killing of children. Jewish racial corruption became supremacy. Jewish national life became settler-colonialism. Jewish collective criminality became genocide. The older imagery no longer needed to announce itself as antisemitic. It could return under the language of anti-racism, decolonization, and human rights. The medieval Jew murdered the Christian child. The racial Jew corrupted the nation. The Zionist colonizes, segregates, and exterminates." data-he="העולם שלאחר המלחמה סיפק שפה אחרת. האימפריות קרסו. תנועות שחרור לאומיות הפילו שלטון קולוניאלי. הגזענות נעשתה לאחת הרעות המגדירות של הסדר שלאחר המלחמה. אפרטהייד סימל שליטה גזעית המעוגנת בחוק. רצח עם נתן שם לפשע העליון של האנושות. בתוך המסגרת הזאת עוצב היהודי מחדש כציוני. כוח יהודי נעשה להשפעה ציונית. קנוניה יהודית נעשתה ללובי הציוני. צמא דם יהודי נעשה להרג מכוון של ילדים. שחיתות גזעית יהודית נעשתה לעליונות. חיים לאומיים יהודיים נעשו לקולוניאליזם התיישבותי. עבריינות קולקטיבית יהודית נעשתה לרצח עם. הדימויים הישנים כבר לא נזקקו להכריז על עצמם כאנטישמיים. הם יכלו לשוב בשפת האנטי־גזענות, הדה־קולוניזציה וזכויות האדם. היהודי של ימי הביניים רצח את הילד הנוצרי. היהודי הגזעי השחית את האומה. הציוני מתיישב כקולוניאליסט, מפריד ומשמיד." data-ru="Послевоенный мир предложил иной язык. Империи рушились. Движения национального освобождения свергали колониальное господство. Расизм стал одним из определяющих зол послевоенного порядка. Апартеид означал узаконенное расовое господство. Геноцид назвал высшее преступление против человечества. В этой системе еврей был переосмыслен как сионист. Еврейская власть стала «сионистским влиянием». Еврейский заговор — «сионистским лобби». Еврейская кровожадность — преднамеренным убийством детей. Еврейская расовая порочность — превосходством. Еврейская национальная жизнь — поселенческим колониализмом. Еврейская коллективная преступность — геноцидом. Старым образам больше не требовалось объявлять себя антисемитскими. Они могли вернуться на языке антирасизма, деколонизации и прав человека. Средневековый еврей убивал христианского ребёнка. Расовый еврей разлагал нацию. Сионист колонизирует, сегрегирует и уничтожает.">The postwar world supplied another language. The empire was collapsing. National liberation movements were overturning colonial rule. Racism had become one of the defining evils of the postwar order. Apartheid stood for legalized racial domination. Genocide named humanity's ultimate crime. Within this, the Jew was recast as the Zionist. Jewish power became Zionist influence. Jewish conspiracy became the Zionist lobby. Jewish bloodlust became the deliberate killing of children. Jewish racial corruption became supremacy. Jewish national life became settler-colonialism. Jewish collective criminality became genocide. The older imagery no longer needed to announce itself as antisemitic. It could return under the language of anti-racism, decolonization, and human rights. The medieval Jew murdered the Christian child. The racial Jew corrupted the nation. The Zionist colonizes, segregates, and exterminates.</p></div>
 </section>
 </main>
-<script src="site.js?v=20260924-portals"></script>
-<script src="final.js?v=20260924-all-rooms"></script>
+<script src="site.js?v=20260924-languages-music"></script>
+<script src="final.js?v=20260924-languages-music"></script>
 </body>
 </html>

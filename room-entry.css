@@ -17,7 +17,7 @@ html body.gallery-design .controls-nav a.room-pill {
   min-height:40px!important;padding:8px 17px!important;box-sizing:border-box;
   border:1px solid #494744!important;border-radius:999px!important;
   background:transparent!important;color:#dedad3!important;box-shadow:none!important;
-  font:400 12px/1.2 'Source Sans 3',sans-serif!important;letter-spacing:.055em!important;
+  font:400 17px/1.2 var(--gallery-prose,'EB Garamond',Georgia,serif)!important;letter-spacing:0!important;
   text-decoration:none!important;text-transform:none!important;white-space:nowrap;
   transition:border-color .2s ease,color .2s ease!important;
 }
@@ -30,4 +30,38 @@ html body.gallery-design .statement-link.room-pill {margin-top:24px!important}
 @media(prefers-reduced-motion:reduce) {
   html.room-arriving body {visibility:visible}
   .room-transition {display:none!important}
+}
+
+/* One serif voice, with complete Hebrew and Cyrillic glyph coverage. */
+html[lang="he"] body.gallery-design {--gallery-prose:'Noto Serif Hebrew',serif;--exhibit-serif:'Noto Serif Hebrew',serif}
+html[lang="ru"] body.gallery-design {--exhibit-serif:'EB Garamond',Georgia,serif}
+html body.gallery-design .controls-nav :is(a,button),
+html body.gallery-design #museum-wayfinder :is(button,.museum-wayfinder-label) {
+  font-family:var(--gallery-prose,'EB Garamond',Georgia,serif)!important;
+  font-weight:400!important;letter-spacing:0!important;
+}
+html body.gallery-design .controls-nav :is(a,button) {font-size:16px!important;line-height:1.3!important}
+html body.gallery-design .controls-nav {flex-wrap:wrap!important;max-width:calc(100% - 240px)!important;row-gap:7px!important}
+html body.gallery-design .controls-nav .nav-box {flex-wrap:wrap!important}
+html[lang="he"] body.gallery-design :is(main p,main h1,main h2,main h3,main h4,main summary,.info-panel,.uniform-archive-copy) {direction:rtl;text-align:start!important;letter-spacing:0!important}
+html[lang="he"] body.gallery-design #main-content .era-title {text-align:center!important;font-size:clamp(1.2rem,2.5vw,2.4rem)!important}
+html[lang="he"] .room-arrival-title {font-family:'Noto Serif Hebrew',serif}
+html[lang="ru"] .room-arrival-title {font-family:'EB Garamond',Georgia,serif}
+@media(max-width:600px) {
+  html body.gallery-design .controls-nav {max-width:calc(100% - 32px)!important}
+  html body.gallery-design .controls-nav :is(a,button) {font-size:14px!important}
+  html body.gallery-design .room-pill {font-size:16px!important}
+  html body.gallery-design #main-content.home-main {padding-top:140px!important}
+}
+/* Leave a clear line for identity and allow translated controls to wrap naturally. */
+html body.gallery-design .controls-nav {top:24px!important;left:24px!important;right:auto!important;gap:8px 14px!important;align-items:center!important;transform:none!important;direction:ltr}
+html body.gallery-design .controls-nav .nav-box {padding:0!important;min-height:32px!important;height:auto!important;gap:8px!important}
+html body.gallery-design .controls-nav :is(a,button) {text-transform:none!important;min-height:32px!important;display:inline-flex;align-items:center}
+html body.gallery-design .controls-nav .third-era-nav-link::after {display:none!important}
+html body.gallery-design .site-brand-link {top:24px!important;right:24px!important;left:auto!important}
+@media(max-width:600px) {
+  html body.gallery-design .site-brand-link {top:20px!important;right:16px!important;left:auto!important;width:120px!important}
+  html body.gallery-design .controls-nav {top:54px!important;left:16px!important;right:auto!important;width:calc(100% - 32px)!important;max-width:none!important;gap:4px 12px!important}
+  html body.gallery-design #main-content.home-main {padding-top:160px!important}
+  html body.gallery-design #gallery .hero-section {padding-top:175px!important}
 }

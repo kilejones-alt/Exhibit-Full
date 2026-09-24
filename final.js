@@ -147,7 +147,7 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'museum-upgrades.css?v=20260924-all-rooms';
+  css.href = 'museum-upgrades.css?v=20260924-languages-music';
   css.dataset.exhibitProductionLayer = 'styles';
   document.head.appendChild(css);
 
@@ -157,10 +157,15 @@
   naya.dataset.exhibitProductionLayer = 'naya-content';
   naya.onload = function(){
     const museum = document.createElement('script');
-    museum.src = 'museum-upgrades.js?v=20260924-all-rooms';
+    museum.src = 'museum-upgrades.js?v=20260924-languages-music';
     museum.defer = true;
     museum.dataset.exhibitProductionLayer = 'museum-ux';
-    document.head.appendChild(museum);
+    const locales = document.createElement('script');
+    locales.src = 'gallery-locales.js?v=20260924-languages-music';
+    const startMuseum = () => document.head.appendChild(museum);
+    locales.onload = startMuseum;
+    locales.onerror = startMuseum;
+    document.head.appendChild(locales);
   };
   document.head.appendChild(naya);
 })();

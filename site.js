@@ -22,7 +22,7 @@
   const LANGUAGE_SESSION_KEY = 'stopazSessionLanguage';
   const AUDIO_TIME = 'stopazAudioTime';
   const AUDIO_WANTED = 'stopazAudioWanted';
-  const savedLanguage = storageGet(LANGUAGE_SESSION_KEY);
+  const savedLanguage = new URL(location.href).searchParams.get('lang') || storageGet(LANGUAGE_SESSION_KEY);
   let currentLang = SUPPORTED_LANGUAGES.includes(savedLanguage) ? savedLanguage : 'en';
   let isPlaying = false;
   let audioStartPending = false;
@@ -42,6 +42,7 @@
   }
 
   function updateAudioButton() {
+    if (window.gallerySound) { window.gallerySound.update(); return; }
     if (!audioBtn) return;
     const labels = {
       en: isPlaying ? 'AUDIO: ON' : 'AUDIO: OFF',
@@ -77,9 +78,11 @@
     });
     updateAudioButton();
     prepareHomeTitle();
+    window.galleryLocale?.apply();
   }
 
   function saveAudioPosition() {
+    if (window.gallerySound) { window.gallerySound.save(); return; }
     if (audio && Number.isFinite(audio.currentTime)) storageSet(AUDIO_TIME, String(audio.currentTime));
   }
 
@@ -92,6 +95,7 @@
   }
 
   async function startAudio() {
+    if (window.gallerySound) { window.gallerySound.play(); return; }
     if (!audio || audioStartPending) return;
     audioStartPending = true;
     audioBtn?.setAttribute('aria-busy', 'true');
@@ -116,6 +120,7 @@
   }
 
   function setupAudio() {
+    if (window.gallerySound) return;
     if (!audio) return;
     audio.volume = 0.46;
     audio.addEventListener('play', () => { isPlaying = true; updateAudioButton(); });
@@ -306,7 +311,7 @@
     setupLanguageControls();
     setupNavigation();
     installMobileMuseumBehavior();
-    if (storageGet(AUDIO_WANTED) === '1') startAudio();
+    if (!window.gallerySound && storageGet(AUDIO_WANTED) === '1') startAudio();
     requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('page-ready')));
     setTimeout(runHomeTitleSweep, 1200);
   });

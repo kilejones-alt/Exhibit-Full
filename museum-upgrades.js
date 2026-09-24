@@ -45,7 +45,7 @@
           try {
             await navigator.clipboard.writeText(url.href);
             const old = btn.textContent;
-            btn.textContent = 'COPIED';
+            btn.textContent = ({en:'COPIED',he:'הועתק',ru:'СКОПИРОВАНО'})[document.documentElement.lang] || 'COPIED';
             setTimeout(() => { btn.textContent = old; }, 1200);
           } catch {
             location.hash = section.id;
@@ -270,6 +270,7 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'museum-wayfinder-item';
+      button.dataset.roomTarget = stop.node.id;
       button.innerHTML = `<span class="museum-wayfinder-number">${String(index+1).padStart(2,'0')}</span><span class="museum-wayfinder-label"></span>`;
       button.querySelector('.museum-wayfinder-label').textContent = stop.label;
       button.addEventListener('click', async () => {
@@ -361,6 +362,7 @@
       frame.style.setProperty('--art-native-width',width + 'px');
     });
 
+    window.galleryLocale?.prepare();
     // Join adjacent prose within each heading. Retain every word and translation.
     [...new Set(all('main p').map(node => node.parentElement))].forEach(parent => {
       let first = null;
@@ -431,6 +433,7 @@
       paragraph.replaceWith(...parts);
     });
 
+    window.galleryLocale?.apply();
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const text = all('main p,main h2,main h3,main h4,main summary,.art-caption-inline,.hero-header-text,.home-intro,.naya-object-meta');
     // Observe individual blocks so even very long essays enter as soon as their top appears.

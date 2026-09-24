@@ -13,7 +13,7 @@ function storageRemove(key) {
 }
 
 const LANGUAGE_SESSION_KEY = 'stopazSessionLanguage';
-const savedLanguage = storageGet(LANGUAGE_SESSION_KEY);
+const savedLanguage = new URL(location.href).searchParams.get('lang') || storageGet(LANGUAGE_SESSION_KEY);
 let currentLang = ['en','he','ru'].includes(savedLanguage) ? savedLanguage : 'en';
 let isPlaying = false;
 let audioStartPending = false;
@@ -532,6 +532,7 @@ function setupTimelineActiveObserver() {
 }
 
 function updateAudioBtnText() {
+  if (window.gallerySound) { window.gallerySound.update(); return; }
   if (!audioBtn) return;
   const labels = {
     en: isPlaying ? 'AUDIO: ON' : 'AUDIO: OFF',
@@ -544,6 +545,7 @@ function updateAudioBtnText() {
 }
 
 function saveAudioPosition() {
+  if (window.gallerySound) { window.gallerySound.save(); return; }
   if (audio && Number.isFinite(audio.currentTime)) {
     storageSet(AUDIO_TIME, String(audio.currentTime));
   }
@@ -567,6 +569,7 @@ function waitForMetadata() {
 }
 
 async function startAudio() {
+  if (window.gallerySound) { window.gallerySound.play(); return; }
   if (!audio || audioStartPending) return;
   audioStartPending = true;
   audioBtn?.setAttribute('aria-busy', 'true');
@@ -629,6 +632,7 @@ function setLanguage(lang, animate = true) {
   document.querySelectorAll('[data-aria-en][data-aria-he][data-aria-ru]').forEach(element => {
     element.setAttribute('aria-label', element.getAttribute(`data-aria-${lang}`) || element.getAttribute('data-aria-en'));
   });
+  window.galleryLocale?.apply();
 }
 
 function lockBodyScroll() {
@@ -962,7 +966,7 @@ function setupGalleryChrome() {
 }
 
 function setupControls() {
-  audioBtn?.addEventListener('click', toggleAudio);
+  if (!window.gallerySound) audioBtn?.addEventListener('click', toggleAudio);
   ['en', 'he', 'ru'].forEach(code => {
     document.getElementById(`btn-${code}`)?.addEventListener('click', () => setLanguage(code));
   });
@@ -1110,7 +1114,7 @@ addEventListener('DOMContentLoaded', () => {
   setupGalleryImagePolish();
   setupGalleryChrome();
   setupControls();
-  if (storageGet(AUDIO_WANTED) === '1') startAudio();
+  if (!window.gallerySound && storageGet(AUDIO_WANTED) === '1') startAudio();
   setupLightbox();
   setLanguage(currentLang, false);
   setupRevealObserver();
