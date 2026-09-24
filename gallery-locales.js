@@ -843,6 +843,17 @@ const rows = [
   ]
 ];
 const normalize = text => String(text || '').replace(/\s+/g,' ').trim();
+rows.push(
+  ['Exhibition chronology & object index','ציר הזמן ומפתח הפריטים של התערוכה','Хронология выставки и указатель экспонатов'],
+  ['Exhibition wayfinding','ניווט בתערוכה','Навигация по выставке'],
+  ['Three eras of Jew-hatred','שלוש תקופות של שנאת יהודים','Три эпохи ненависти к евреям'],
+  ['Antijudaism gallery image','תמונת הכניסה לחדר האנטי־יהדות','Изображение у входа в зал антииудаизма'],
+  ['Antisemitism gallery image','תמונת הכניסה לחדר האנטישמיות','Изображение у входа в зал антисемитизма'],
+  ['Antizionism gallery image','תמונת הכניסה לחדר האנטי־ציונות','Изображение у входа в зал антисионизма'],
+  ['Antijudaism gallery introduction','תמונת המבוא לחדר האנטי־יהדות','Вступительное изображение зала антииудаизма'],
+  ['Antisemitism gallery introduction','תמונת המבוא לחדר האנטישמיות','Вступительное изображение зала антисемитизма'],
+  ['Bund Archival Image','תצלום ארכיוני של הבונד','Архивная фотография Бунда']
+);
 const dictionary = new Map(rows.map(row=>[normalize(row[0]),row]));
 function prepare() {
   // Existing translations remain the source for objects that were already bilingual.
@@ -850,7 +861,7 @@ function prepare() {
     const key=normalize(node.dataset.en);
     if (!dictionary.has(key)) dictionary.set(key,[node.dataset.en,node.dataset.he,node.dataset.ru]);
   });
-  document.querySelectorAll('[data-en],main p,main h1,main h2,main h3,main h4,main summary,main a,main button,.naya-kicker,.naya-object-meta span,.museum-catalogue-key,.museum-catalogue-value,.museum-catalogue-status,.museum-object-link,.museum-wayfinder-title').forEach(node=>{
+  document.querySelectorAll('[data-en],main p,main h1,main h2,main h3,main h4,main summary,main a,main button,.naya-kicker,.naya-object-meta span,.museum-catalogue-key,.museum-catalogue-value,.museum-catalogue-status,.museum-object-link,.museum-wayfinder-heading').forEach(node=>{
     if (node.matches('[data-he][data-ru]')) return;
     const en = node.dataset.en || node.textContent;
     const values = dictionary.get(normalize(en));
@@ -888,6 +899,18 @@ function apply() {
     if (!node.dataset.localeAria) node.dataset.localeAria=node.getAttribute('aria-label');
     const values=dictionary.get(normalize(node.dataset.localeAria));
     if(values) node.setAttribute('aria-label', values[{en:0,he:1,ru:2}[lang]]);
+  });
+  document.querySelectorAll('button.art-box').forEach(button=>{
+    const description=button.querySelector('img')?.alt;
+    if (!description) return;
+    const prefix={en:'Enlarge artwork: ',he:'הגדלת היצירה: ',ru:'Увеличить произведение: '}[lang];
+    button.setAttribute('aria-label',prefix+description);
+  });
+  document.querySelectorAll('.museum-object-link').forEach(button=>{
+    const title=button.closest('.art-caption-inline')?.querySelector('.art-caption-title')?.textContent;
+    if (!title) return;
+    const prefix={en:'Copy permanent link to ',he:'העתקת קישור קבוע אל ',ru:'Скопировать постоянную ссылку на '}[lang];
+    button.setAttribute('aria-label',prefix+title);
   });
   window.gallerySound?.update();
   const current = new URL(location.href);
