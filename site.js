@@ -216,21 +216,8 @@
     if (leaving) return;
     leaving = true;
     saveAudioPosition();
-    card.setAttribute('aria-busy', 'true');
-    card.classList.add('door-cut-source');
-    document.body.classList.add('door-cutting');
-    const doorImage = card.querySelector('.era-image');
-    const arrivalImage = doorImage?.currentSrc || doorImage?.src || '';
-    if (arrivalImage) storageSet('stopaz-era-arrival-image', arrivalImage);
-    storageSet('stopaz-era-aperture-arrival', '1');
-
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setTimeout(() => location.assign(href), 70);
-      return;
-    }
-
-    requestAnimationFrame(() => requestAnimationFrame(() => curtain.classList.add('is-active')));
-    setTimeout(() => location.assign(href), 235);
+    if (window.galleryRoomEntry) window.galleryRoomEntry.enter(card, href);
+    else location.assign(href);
   }
 
   function setupLanguageControls() {

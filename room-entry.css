@@ -1,0 +1,33 @@
+/* Quiet navigation; room art is the only transition graphic. */
+html.room-arriving {background:#000}
+html.room-arriving body {visibility:hidden}
+.room-transition {position:fixed;inset:0;z-index:2147483000;overflow:hidden;pointer-events:none}
+.room-departure {pointer-events:auto}
+.room-flight-art {position:absolute;overflow:hidden;transform-origin:center;will-change:transform,opacity}
+.room-flight-art img {display:block;width:100%;height:100%;object-fit:cover;max-width:none}
+.room-flight-art img.room-flight-stalin {position:absolute;left:-4.5%;top:-4.5%;width:109%;height:109%}
+.room-arrival {display:grid;place-items:center;background:#000;color:#e2ded7;padding:24px}
+.room-arrival-title {font-family:'Libre Caslon Display',Georgia,serif;font-size:clamp(2.6rem,7vw,5.5rem);line-height:1.05;text-align:center;opacity:0}
+html body.gallery-design h1[tabindex="-1"]:focus {outline:none!important}
+html body.gallery-design #main-content .era-card {padding-bottom:0!important}
+html body.gallery-design #main-content .era-arrow {display:none!important}
+html body.gallery-design .room-pill,
+html body.gallery-design .controls-nav a.room-pill {
+  display:inline-flex!important;align-items:center;justify-content:center;gap:10px;
+  min-height:40px!important;padding:8px 17px!important;box-sizing:border-box;
+  border:1px solid #494744!important;border-radius:999px!important;
+  background:transparent!important;color:#dedad3!important;box-shadow:none!important;
+  font:400 12px/1.2 'Source Sans 3',sans-serif!important;letter-spacing:.055em!important;
+  text-decoration:none!important;text-transform:none!important;white-space:nowrap;
+  transition:border-color .2s ease,color .2s ease!important;
+}
+html body.gallery-design #main-content .room-pill {margin-top:20px!important}
+html body.gallery-design #main-content .era-card:hover .room-pill,
+html body.gallery-design .room-pill:hover {border-color:#c4beb5!important;color:#fff!important}
+html body.gallery-design #main-content .era-card:focus-visible {outline:1px solid #e2ded7!important;outline-offset:8px!important}
+html body.gallery-design .controls-nav .nav-box:has(.room-pill) {padding:0!important}
+html body.gallery-design .statement-link.room-pill {margin-top:24px!important}
+@media(prefers-reduced-motion:reduce) {
+  html.room-arriving body {visibility:visible}
+  .room-transition {display:none!important}
+}
