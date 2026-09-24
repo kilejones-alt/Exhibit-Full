@@ -183,7 +183,7 @@
   }
 
   function unifyExhibitionLayout() {
-    if (!/exhibition\.html$/i.test(location.pathname)) return;
+    if (!document.querySelector('#gallery')) return;
     document.body.classList.add('exhibition-uniform');
     qsa('.exhibition-section').forEach(section => {
       const caption = section.querySelector('.art-caption-inline');
@@ -248,7 +248,7 @@
 
   function installWayfinder() {
     if (document.getElementById('museum-wayfinder')) return;
-    if (!/exhibition\.html$/i.test(location.pathname)) return;
+    if (!document.querySelector('#gallery')) return;
     const stops = collectStops();
     if (stops.length < 3) return;
 

@@ -725,6 +725,18 @@ body.gallery-design #gallery .art-box :is(.museum-frame,.responsive-art-picture)
 body.gallery-design #gallery .art-box img {display:block!important}
 body.gallery-design :is(#gallery,#main-content) p.gallery-reading-paragraph {margin-bottom:2.1em!important}
 body.gallery-design :is(#gallery,#main-content) p.gallery-reading-paragraph:last-child {margin-bottom:0!important}
+/* Equal portrait previews for all three entrances. Full objects remain uncropped inside rooms. */
+body.gallery-design #main-content .era-image-wrap {
+  position:relative!important;width:100%!important;height:auto!important;
+  aspect-ratio:3/4!important;max-height:none!important;overflow:hidden!important;
+}
+body.gallery-design #main-content .era-image-wrap .responsive-art-picture {display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+body.gallery-design #main-content .era-image-wrap img.era-image {display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}
+/* The Stalin source includes a black photographic mount; crop that mount in the entrance preview. */
+body.gallery-design #main-content .era-card.antizionism .era-image {
+  position:absolute!important;left:-4.5%!important;top:-4.5%!important;
+  width:109%!important;height:109%!important;max-width:none!important;max-height:none!important;
+}
 /* Keep all three room entrances together in desktop and tablet browser panels. */
 @media(min-width:601px) {
   body.gallery-design #main-content .era-grid {
@@ -733,7 +745,7 @@ body.gallery-design :is(#gallery,#main-content) p.gallery-reading-paragraph:last
   }
   body.gallery-design #main-content .era-card {min-width:0!important;grid-column:auto!important;grid-row:auto!important}
   body.gallery-design #main-content .era-title {font-size:clamp(1.4rem,3vw,2.8rem)!important}
-  body.gallery-design #main-content .era-image-wrap {height:clamp(240px,35vw,360px)!important;max-height:none!important}
+  body.gallery-design #main-content .era-image-wrap {height:auto!important;max-height:none!important}
   body.gallery-design #main-content .desktop-connector {display:block!important}
 }
 @media(max-width:850px) {
