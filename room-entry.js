@@ -47,7 +47,6 @@
         const clone = document.createElement('img');
         clone.src = image.currentSrc || image.src;
         clone.alt = '';
-        if (card.classList.contains('antizionism')) clone.className = 'room-flight-stalin';
         art.append(clone);
         veil.append(art);
         const scale = Math.max(innerWidth / rect.width, innerHeight / rect.height) * 1.04;
@@ -56,7 +55,7 @@
           {transform:`translate(${innerWidth/2-rect.left-rect.width/2}px,${innerHeight/2-rect.top-rect.height/2}px) scale(${scale})`,opacity:0}
         ], {duration:900,easing:'cubic-bezier(.22,.65,.3,1)',fill:'forwards'});
       }
-      veil.animate([{backgroundColor:'rgba(0,0,0,0)'},{backgroundColor:'#000'}], {duration:650,fill:'forwards'});
+      veil.animate([{backgroundColor:'rgba(0,0,0,0)'},{backgroundColor:'#18233a'}], {duration:650,fill:'forwards'});
       navigationTimer = setTimeout(() => location.assign(href), 930);
     }
   };
@@ -69,8 +68,9 @@
     title.setAttribute('aria-hidden', 'true');
     const label = document.createElement('span');
     label.className = 'room-arrival-title';
-    label.textContent = heading?.textContent.trim() || '';
-    requestAnimationFrame(() => { label.textContent = heading?.textContent.trim() || ''; });
+    const arrivalTitle = () => document.body.getAttribute(`data-room-title-${document.documentElement.lang || 'en'}`) || document.body.getAttribute('data-room-title-en') || heading?.textContent.trim() || '';
+    label.textContent = arrivalTitle();
+    requestAnimationFrame(() => { label.textContent = arrivalTitle(); });
     title.append(label);
     document.body.append(title);
     root.classList.remove('room-arriving');

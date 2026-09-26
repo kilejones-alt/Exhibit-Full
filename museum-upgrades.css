@@ -766,3 +766,9 @@ body.gallery-design #main-content .era-card.antizionism .era-image {
     scale:1.045!important;
   }
 }
+
+/* Three influences remain in reading order across desktop and tablet widths. */
+@media(min-width:601px) {
+  body.gallery-design #gallery .genealogy-influences-grid {display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:clamp(20px,3vw,48px)!important;direction:ltr}
+  body.gallery-design #gallery .influence-card {min-width:0!important}
+}

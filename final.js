@@ -147,12 +147,17 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'museum-upgrades.css?v=20260924-hover-zoom';
+  css.href = 'museum-upgrades.css?v=20260926-antizionist-era';
   css.dataset.exhibitProductionLayer = 'styles';
   document.head.appendChild(css);
 
+  const palette = document.createElement('link');
+  palette.rel = 'stylesheet';
+  palette.href = 'gallery-palette.css?v=20260926-approved-palette';
+  document.head.appendChild(palette);
+
   const naya = document.createElement('script');
-  naya.src = 'naya-updates.js?v=20260924-full-copy';
+  naya.src = 'naya-updates.js?v=20260926-antizionist-era';
   naya.defer = true;
   naya.dataset.exhibitProductionLayer = 'naya-content';
   naya.onload = function(){

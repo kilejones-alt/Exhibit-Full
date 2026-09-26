@@ -269,13 +269,6 @@
     if (!libels || libels.dataset.nayaUpdated === '1') return;
     libels.dataset.nayaUpdated = '1';
 
-    const eras = document.createElement('section');
-    eras.className = 'naya-source-update naya-eras-context';
-    eras.id = 'three-eras';
-    eras.innerHTML = '<details><summary>The Three Eras of Jew-Hatred</summary>' + erasMarkup() + '</details>';
-    const influences = document.querySelector('.genealogy-influences');
-    if (influences) influences.before(eras); else libels.before(eras);
-
     const intro = document.createElement('section');
     intro.className = 'naya-source-update source-antizionism-framework';
     intro.id = 'antizionist-era';
