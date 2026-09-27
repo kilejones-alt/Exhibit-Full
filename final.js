@@ -147,14 +147,16 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'museum-upgrades.css?v=20260926-antizionist-era';
+  css.href = 'museum-upgrades.css?v=20260926-gallery-home';
   css.dataset.exhibitProductionLayer = 'styles';
   document.head.appendChild(css);
 
-  const palette = document.createElement('link');
-  palette.rel = 'stylesheet';
-  palette.href = 'gallery-palette.css?v=20260926-approved-palette';
-  document.head.appendChild(palette);
+  if (!document.querySelector('#main-content.home-main')) {
+    const palette = document.createElement('link');
+    palette.rel = 'stylesheet';
+    palette.href = 'gallery-palette.css?v=20260926-approved-palette';
+    document.head.appendChild(palette);
+  }
 
   const naya = document.createElement('script');
   naya.src = 'naya-updates.js?v=20260926-antizionist-era';
