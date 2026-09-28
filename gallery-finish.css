@@ -19,7 +19,10 @@ html body.gallery-design::before {
 }
 html body.gallery-design .controls-nav {z-index:1100!important;background:transparent!important;box-shadow:none!important}
 html body.gallery-design .site-brand-link {z-index:1101!important}
-html body.gallery-design .site-brand {filter:none!important}
+html body.gallery-design .site-brand {filter:grayscale(1) brightness(0) invert(1)!important;opacity:.85}
+html body.gallery-design .controls-nav :is(.nav-box,.lang-box,.home-btn,.audio-btn,button) {
+  background:transparent!important;box-shadow:none!important;border-color:transparent!important;
+}
 html body.gallery-design .controls-nav :is(a,button) {color:#bbb7b0!important}
 html body.gallery-design .controls-nav :is(a,button):hover,
 html body.gallery-design .controls-nav .active {color:#f1eee8!important}
