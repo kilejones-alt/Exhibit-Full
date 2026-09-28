@@ -55,7 +55,7 @@
           {transform:`translate(${innerWidth/2-rect.left-rect.width/2}px,${innerHeight/2-rect.top-rect.height/2}px) scale(${scale})`,opacity:0}
         ], {duration:900,easing:'cubic-bezier(.22,.65,.3,1)',fill:'forwards'});
       }
-      veil.animate([{backgroundColor:'rgba(0,0,0,0)'},{backgroundColor:'#18233a'}], {duration:650,fill:'forwards'});
+      veil.animate([{backgroundColor:'rgba(0,0,0,0)'},{backgroundColor:'#000000'}], {duration:650,fill:'forwards'});
       navigationTimer = setTimeout(() => location.assign(href), 930);
     }
   };

@@ -151,13 +151,6 @@
   css.dataset.exhibitProductionLayer = 'styles';
   document.head.appendChild(css);
 
-  if (!document.querySelector('#main-content.home-main')) {
-    const palette = document.createElement('link');
-    palette.rel = 'stylesheet';
-    palette.href = 'gallery-palette.css?v=20260926-approved-palette';
-    document.head.appendChild(palette);
-  }
-
   const naya = document.createElement('script');
   naya.src = 'naya-updates.js?v=20260926-antizionist-era';
   naya.defer = true;
