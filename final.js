@@ -152,16 +152,16 @@
   document.head.appendChild(css);
 
   const naya = document.createElement('script');
-  naya.src = 'naya-updates.js?v=20260929-home-copy';
+  naya.src = 'naya-updates.js?v=20260929-public';
   naya.defer = true;
   naya.dataset.exhibitProductionLayer = 'naya-content';
   naya.onload = function(){
     const museum = document.createElement('script');
-    museum.src = 'museum-upgrades.js?v=20260924-languages-music';
+    museum.src = 'museum-upgrades.js?v=20260929-public';
     museum.defer = true;
     museum.dataset.exhibitProductionLayer = 'museum-ux';
     const locales = document.createElement('script');
-    locales.src = 'gallery-locales.js?v=20260924-final-sweep';
+    locales.src = 'gallery-locales.js?v=20260929-public';
     const startMuseum = () => document.head.appendChild(museum);
     locales.onload = startMuseum;
     locales.onerror = startMuseum;

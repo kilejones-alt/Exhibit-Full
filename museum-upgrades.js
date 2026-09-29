@@ -174,8 +174,8 @@
         ['Creator', record.creator],
         ['Historical setting', record.setting],
         ['Archive', record.archive]
-      ];
-      box.innerHTML = rows.map(([key,value]) => `<div class="museum-catalogue-row"><div class="museum-catalogue-key">${key}</div><div class="museum-catalogue-value"></div></div>`).join('') + '<div class="museum-catalogue-status">Working catalogue · source verification preserved</div>';
+      ].filter(([,value]) => value && !/working (?:catalogue|document|text)|remain|to be verified|should follow|not yet|to be completed/i.test(value));
+      box.innerHTML = rows.map(([key,value]) => `<div class="museum-catalogue-row"><div class="museum-catalogue-key">${key}</div><div class="museum-catalogue-value"></div></div>`).join('');
       [...box.querySelectorAll('.museum-catalogue-value')].forEach((node,i) => node.textContent = rows[i][1]);
       card.appendChild(box);
       if (!card.id) card.id = uniqueId(`archive-${slugify(title)}`);
@@ -208,7 +208,7 @@
       const details = document.createElement('details');
       details.className = 'uniform-archive-details';
       const summary = document.createElement('summary');
-      summary.textContent = 'Creator, context & archive';
+      summary.textContent = 'About this work';
       details.append(summary, record);
       while (card.firstChild) copy.appendChild(card.firstChild);
       copy.appendChild(details);

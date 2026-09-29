@@ -362,14 +362,14 @@ const rows = [
     "«Пришей и этот кусочек!»"
   ],
   [
-    "N. Lisogorsky · Soviet anti-Zionist cartoon · c. 1970s–early 1980s; exact publication/date to verify",
-    "נ' ליסוגורסקי · קריקטורה סובייטית אנטי־ציונית · בקירוב משנות השבעים עד ראשית שנות השמונים; הפרסום והתאריך המדויקים טעונים אימות",
-    "Н. Лисогорский · советская антисионистская карикатура · примерно 1970-е — начало 1980-х; точные издание и дата требуют уточнения"
+    "N. Lisogorsky · Soviet anti-Zionist cartoon",
+    "נ׳ ליסוגורסקי · קריקטורה סובייטית אנטי־ציונית",
+    "Н. Лисогорский · советская антисионистская карикатура"
   ],
   [
-    "Image: N. Lisogorsky, Soviet anti-Zionist cartoon, c. 1970s–early 1980s. Exact publication and date to be verified. This Soviet political cartoon depicts Israel as an expansionist colonial power systematically consuming the Arab world. At the center, a seamstress operates a sewing machine emblazoned with a Star of David, the letters “USA,” and the words “Made in USA.” American dollars sit conspicuously beside her. An Israeli figure points toward a map labeled “Map of the Arab World,” instructing her to incorporate yet another piece into a second map labeled “Map of Greater Israel.”",
-    "תמונה: נ' ליסוגורסקי, קריקטורה סובייטית אנטי־ציונית, בקירוב משנות השבעים עד ראשית שנות השמונים. הפרסום והתאריך המדויקים טעונים אימות. הקריקטורה הפוליטית הסובייטית הזאת מציגה את ישראל כמעצמה קולוניאלית מתפשטת הבולעת בשיטתיות את העולם הערבי. במרכזה מפעילה תופרת מכונת תפירה שעליה מגן דוד, האותיות ״USA״ והמילים ״תוצרת ארצות הברית״. דולרים אמריקאיים מונחים לצדה באופן בולט. דמות ישראלית מצביעה על מפה שכותרתה ״מפת העולם הערבי״ ומורה לה לשלב עוד חתיכה במפה שנייה שכותרתה ״מפת ישראל הגדולה״.",
-    "Изображение: Н. Лисогорский, советская антисионистская карикатура, примерно 1970-е — начало 1980-х годов. Точные издание и дата требуют уточнения. Карикатура изображает Израиль экспансионистской колониальной державой, систематически поглощающей арабский мир. В центре швея работает на швейной машине со звездой Давида, буквами «USA» и надписью «Made in USA». Рядом с ней демонстративно лежат американские доллары. Израильская фигура указывает на «Карту арабского мира», велит включить ещё один фрагмент во вторую карту — «Карту Великого Израиля»."
+    "Image: N. Lisogorsky, Soviet anti-Zionist cartoon. This Soviet political cartoon depicts Israel as an expansionist colonial power systematically consuming the Arab world. At the center, a seamstress operates a sewing machine emblazoned with a Star of David, the letters “USA,” and the words “Made in USA.” American dollars sit conspicuously beside her. An Israeli figure points toward a map labeled “Map of the Arab World,” instructing her to incorporate yet another piece into a second map labeled “Map of Greater Israel.”",
+    "תמונה: נ' ליסוגורסקי, קריקטורה סובייטית אנטי־ציונית. הקריקטורה הפוליטית הסובייטית הזאת מציגה את ישראל כמעצמה קולוניאלית מתפשטת הבולעת בשיטתיות את העולם הערבי. במרכזה מפעילה תופרת מכונת תפירה שעליה מגן דוד, האותיות ״USA״ והמילים ״תוצרת ארצות הברית״. דולרים אמריקאיים מונחים לצדה באופן בולט. דמות ישראלית מצביעה על מפה שכותרתה ״מפת העולם הערבי״ ומורה לה לשלב עוד חתיכה במפה שנייה שכותרתה ״מפת ישראל הגדולה״.",
+    "Изображение: Н. Лисогорский, советская антисионистская карикатура. Карикатура изображает Израиль экспансионистской колониальной державой, систематически поглощающей арабский мир. В центре швея работает на швейной машине со звездой Давида, буквами «USA» и надписью «Made in USA». Рядом с ней демонстративно лежат американские доллары. Израильская фигура указывает на «Карту арабского мира», велит включить ещё один фрагмент во вторую карту — «Карту Великого Израиля»."
   ],
   [
     "The caption reads: “Sew on this little piece too!”",
@@ -402,14 +402,14 @@ const rows = [
     "«Аппетиты израильских экстремистов»"
   ],
   [
-    "Sovetskaya Moldavia · June 4 · year to verify",
-    "סובייטסקאיה מולדביה · 4 ביוני · השנה טעונה אימות",
-    "«Советская Молдавия» · 4 июня · год требует уточнения"
+    "Sovetskaya Moldavia · June 4",
+    "סובייטסקאיה מולדביה · 4 ביוני",
+    "Советская Молдавия · 4 июня"
   ],
   [
-    "Image: “The Israeli Extremists’ Appetite”\u000b Sovetskaya Moldavia, June 4, year to be verified\u000b Soviet Union",
-    "תמונה: ״תיאבונם של הקיצונים הישראלים״. סובייטסקאיה מולדביה, 4 ביוני, השנה טעונה אימות. ברית המועצות.",
-    "Изображение: «Аппетиты израильских экстремистов». «Советская Молдавия», 4 июня, год требует уточнения. Советский Союз."
+    "Image: “The Israeli Extremists’ Appetite”\u000b Sovetskaya Moldavia, June 4\u000b Soviet Union",
+    "תמונה: ״תיאבונם של הקיצונים הישראלים״\u000b סובייטסקאיה מולדביה, 4 ביוני\u000b ברית המועצות",
+    "Изображение: «Аппетит израильских экстремистов»\u000b Советская Молдавия, 4 июня\u000b Советский Союз"
   ],
   [
     "An Israeli general stretches his arms across a map labeled “Arab Countries,” visually transforming Israel into a voracious expansionist power. His exaggerated hands grasp the surrounding territory, while dark liquid drips from his fingers. The title—“The Israeli Extremists’ Appetite”—turns territorial ambition into a metaphor of insatiable hunger.",
@@ -840,6 +840,11 @@ const rows = [
     "Object 10",
     "פריט 10",
     "Экспонат 10"
+  ],
+  [
+    "About this work",
+    "על היצירה",
+    "Об этой работе"
   ]
 ];
 const normalize = text => String(text || '').replace(/\s+/g,' ').trim();

@@ -186,9 +186,9 @@
   {
     "title": "“Sew on this little piece too!”",
     "img": "naya-lisogorsky-colonial-cartoon.webp",
-    "meta": "N. Lisogorsky · Soviet anti-Zionist cartoon · c. 1970s–early 1980s; exact publication/date to verify",
+    "meta": "N. Lisogorsky · Soviet anti-Zionist cartoon",
     "paragraphs": [
-      "Image: N. Lisogorsky, Soviet anti-Zionist cartoon, c. 1970s–early 1980s. Exact publication and date to be verified. This Soviet political cartoon depicts Israel as an expansionist colonial power systematically consuming the Arab world. At the center, a seamstress operates a sewing machine emblazoned with a Star of David, the letters “USA,” and the words “Made in USA.” American dollars sit conspicuously beside her. An Israeli figure points toward a map labeled “Map of the Arab World,” instructing her to incorporate yet another piece into a second map labeled “Map of Greater Israel.”",
+      "Image: N. Lisogorsky, Soviet anti-Zionist cartoon. This Soviet political cartoon depicts Israel as an expansionist colonial power systematically consuming the Arab world. At the center, a seamstress operates a sewing machine emblazoned with a Star of David, the letters “USA,” and the words “Made in USA.” American dollars sit conspicuously beside her. An Israeli figure points toward a map labeled “Map of the Arab World,” instructing her to incorporate yet another piece into a second map labeled “Map of Greater Israel.”",
       "The caption reads: “Sew on this little piece too!”",
       "Israel does not merely occupy territory; it is portrayed as deliberately cutting pieces from the Arab world to construct an ever-expanding “Greater Israel.” The American-made sewing machine and money establish the United States as the power enabling this supposed project."
     ]
@@ -196,9 +196,9 @@
   {
     "title": "“The Israeli Extremists’ Appetite”",
     "img": "naya-israeli-extremists-appetite.webp",
-    "meta": "Sovetskaya Moldavia · June 4 · year to verify",
+    "meta": "Sovetskaya Moldavia · June 4",
     "paragraphs": [
-      "Image: “The Israeli Extremists’ Appetite”\u000b Sovetskaya Moldavia, June 4, year to be verified\u000b Soviet Union",
+      "Image: “The Israeli Extremists’ Appetite”\u000b Sovetskaya Moldavia, June 4\u000b Soviet Union",
       "An Israeli general stretches his arms across a map labeled “Arab Countries,” visually transforming Israel into a voracious expansionist power. His exaggerated hands grasp the surrounding territory, while dark liquid drips from his fingers. The title—“The Israeli Extremists’ Appetite”—turns territorial ambition into a metaphor of insatiable hunger."
     ]
   },
@@ -281,7 +281,7 @@
     archive.id = 'exhibition-archive';
     archive.lang = 'en';
     archive.dir = 'ltr';
-    archive.innerHTML = '<h2>The Archive</h2>' + p(sourceCopy.archive[0],'naya-lede') + '<details class="naya-archive-guide"><summary>How to read the archive</summary>'+ sourceCopy.archive.slice(1).map(text=>{const [label,...rest]=text.split('\u000b');return '<h3>'+esc(label)+'</h3> '+p(rest.join(' '));}).join('') + '</details><div class="naya-archive-grid">' + archiveObjects.map((o,i)=>'<article class="naya-archive-card"><img loading="lazy" decoding="async" src="'+esc(o.img)+'" alt="'+esc(o.title)+'"><div class="naya-object-meta"><span>Object '+String(i+1).padStart(2,'0')+'</span><span>'+esc(o.meta)+'</span></div><h3>'+esc(o.title)+'</h3>'+paragraphs(o.paragraphs)+(/verify/i.test(o.meta)?'<p class="naya-verification">Exact publication/date remains to be verified.</p>':'')+'</article>').join('')+'</div>';
+    archive.innerHTML = '<h2>The Archive</h2>' + p(sourceCopy.archive[0],'naya-lede') + '<details class="naya-archive-guide"><summary>How to read the archive</summary>'+ sourceCopy.archive.slice(1).map(text=>{const [label,...rest]=text.split('\u000b');return '<h3>'+esc(label)+'</h3> '+p(rest.join(' '));}).join('') + '</details><div class="naya-archive-grid">' + archiveObjects.map((o,i)=>'<article class="naya-archive-card"><img loading="lazy" decoding="async" src="'+esc(o.img)+'" alt="'+esc(o.title)+'"><div class="naya-object-meta"><span>Object '+String(i+1).padStart(2,'0')+'</span><span>'+esc(o.meta)+'</span></div><h3>'+esc(o.title)+'</h3>'+paragraphs(o.paragraphs)+'</article>').join('')+'</div>';
     libels.after(archive);
   }
 
