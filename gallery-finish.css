@@ -75,12 +75,12 @@ html body.gallery-design.overview-page main :is(.overview-institution,.overview-
 
 /* Artwork rises into a soft gallery light; the camera moves evenly for five seconds. */
 @media (hover:hover) and (pointer:fine) {
-  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap) {
+  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap,.home-framework-art) {
     filter:drop-shadow(0 0 0 transparent)!important;
     transition:filter 1.2s ease,translate .8s ease!important;
     translate:0 0;
   }
-  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap):is(:hover,:focus-visible),
+  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap,.home-framework-art):is(:hover,:focus-visible),
   html body.gallery-design #main-content .era-card:focus-visible .era-image-wrap {
     filter:drop-shadow(0 0 18px rgba(241,238,232,.22))!important;
   }
@@ -91,18 +91,26 @@ html body.gallery-design.overview-page main :is(.overview-institution,.overview-
     transform-origin:center!important;
     transition:scale 5s linear!important;
   }
-  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap):is(:hover,:focus-visible),
+  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap,.home-framework-art):is(:hover,:focus-visible),
   html body.gallery-design #main-content .era-card:focus-visible .era-image-wrap {
     translate:0 -4px;
   }
-  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap):is(:hover,:focus-visible) img.gallery-zoom,
+  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap,.home-framework-art):is(:hover,:focus-visible) img.gallery-zoom,
   html body.gallery-design #main-content .era-card:focus-visible img.gallery-zoom,
   html body.gallery-design :is(#gallery,#main-content) img.gallery-zoom:hover {
     scale:1.06!important;
   }
 }
 @media (prefers-reduced-motion:reduce) {
-  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap) {
+  html body.gallery-design :is(#gallery,#main-content) :is(.art-box,.uniform-archive-art,.era-image-wrap,.home-framework-art) {
     translate:none!important;transition:none!important;
   }
 }
+
+/* The supplied framework follows the three era descriptions; credit belongs to the image. */
+html body.gallery-design .home-framework {width:min(760px,calc(100% - 48px));margin:64px auto 80px}
+html body.gallery-design .home-framework-art {display:block;background:transparent;overflow:visible}
+html body.gallery-design .home-framework-art img {display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
+html body.gallery-design .home-framework figcaption {font-family:var(--gallery-prose,Georgia,serif);font-size:1rem;line-height:1.5;color:#aaa7a2;text-align:left;margin:36px 0 0}
+html[dir="rtl"] body.gallery-design .home-framework figcaption {text-align:right}
+@media(max-width:600px) {html body.gallery-design .home-framework {width:calc(100% - 32px);margin:40px auto 56px}}
