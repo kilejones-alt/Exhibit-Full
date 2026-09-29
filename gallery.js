@@ -376,6 +376,10 @@ function animateHeroWords(element) {
 
 function animateHeroLetters(element) {
   if (!element) return;
+  if (element.dataset.titleMotion === 'words') {
+    animateHeroWords(element);
+    return;
+  }
   const text = textFor(element);
   element.dataset.fullText = text;
   element.setAttribute('aria-label', text);
