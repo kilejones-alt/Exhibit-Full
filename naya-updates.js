@@ -78,8 +78,6 @@
       "title": "Antizionism",
       "paragraphs": [
         "The postwar world supplied a new moral language. Empires were collapsing, national liberation movements were overturning colonial rule, and racism had become one of the defining evils of the age. Apartheid came to symbolize legalized racial domination; genocide, humanity’s ultimate crime. Human rights emerged as the era’s defining moral virtue. And once again, the Jew was recast as its enemy. Now reimagined as Zionist, the Jew was accused of embodying the very evils the postwar world had learned to condemn: racism, colonialism, apartheid, and genocide.",
-        "The postwar world supplied another language. The empire was collapsing. National liberation movements were overturning colonial rule. Racism had become one of the defining evils of the postwar order. Apartheid stood for legalized racial domination. Genocide named humanity's ultimate crime. In this era, human rights was virtue and the Jew, recast as Zionist, once again found himself reimagined as a demon who threatens human rights.",
-        "Within this, the Jew was recast as the Zionist.",
         "Jewish power became Zionist influence. Jewish conspiracy became the Zionist lobby. Jewish bloodlust became the deliberate killing of children. Jewish racial corruption became supremacy. Jewish national life became settler-colonialism. Jewish collective criminality became genocide.",
         "The older imagery no longer needed to announce itself as antisemitic. It could return under the language of anti-racism, decolonization, and human rights. The medieval Jew murdered the Christian child. The racial Jew corrupted the nation. The Zionist colonizes, segregates, and exterminates."
       ]

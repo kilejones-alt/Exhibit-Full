@@ -152,7 +152,7 @@
   document.head.appendChild(css);
 
   const naya = document.createElement('script');
-  naya.src = 'naya-updates.js?v=20260926-antizionist-era';
+  naya.src = 'naya-updates.js?v=20260929-home-copy';
   naya.defer = true;
   naya.dataset.exhibitProductionLayer = 'naya-content';
   naya.onload = function(){
