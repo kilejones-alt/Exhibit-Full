@@ -407,9 +407,9 @@ const rows = [
     "Советская Молдавия · 4 июня"
   ],
   [
-    "Image: “The Israeli Extremists’ Appetite”\u000b Sovetskaya Moldavia, June 4\u000b Soviet Union",
-    "תמונה: ״תיאבונם של הקיצונים הישראלים״\u000b סובייטסקאיה מולדביה, 4 ביוני\u000b ברית המועצות",
-    "Изображение: «Аппетит израильских экстремистов»\u000b Советская Молдавия, 4 июня\u000b Советский Союз"
+    "Image: “The Israeli Extremists’ Appetite”. Sovetskaya Moldavia, June 4. Soviet Union",
+    "תמונה: ״תיאבונם של הקיצונים הישראלים״. סובייטסקאיה מולדביה, 4 ביוני. ברית המועצות",
+    "Изображение: «Аппетит израильских экстремистов». Советская Молдавия, 4 июня. Советский Союз"
   ],
   [
     "An Israeli general stretches his arms across a map labeled “Arab Countries,” visually transforming Israel into a voracious expansionist power. His exaggerated hands grasp the surrounding territory, while dark liquid drips from his fingers. The title—“The Israeli Extremists’ Appetite”—turns territorial ambition into a metaphor of insatiable hunger.",

@@ -198,7 +198,7 @@
     "img": "naya-israeli-extremists-appetite.webp",
     "meta": "Sovetskaya Moldavia · June 4",
     "paragraphs": [
-      "Image: “The Israeli Extremists’ Appetite”\u000b Sovetskaya Moldavia, June 4\u000b Soviet Union",
+      "Image: “The Israeli Extremists’ Appetite”. Sovetskaya Moldavia, June 4. Soviet Union",
       "An Israeli general stretches his arms across a map labeled “Arab Countries,” visually transforming Israel into a voracious expansionist power. His exaggerated hands grasp the surrounding territory, while dark liquid drips from his fingers. The title—“The Israeli Extremists’ Appetite”—turns territorial ambition into a metaphor of insatiable hunger."
     ]
   },
