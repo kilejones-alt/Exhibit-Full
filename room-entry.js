@@ -47,16 +47,22 @@
         const clone = document.createElement('img');
         clone.src = image.currentSrc || image.src;
         clone.alt = '';
+        // Match the visible hover state before the artwork leaves its doorway.
+        const imageStyle = getComputedStyle(image);
+        clone.style.scale = imageStyle.scale;
+        clone.style.objectFit = imageStyle.objectFit;
+        clone.style.objectPosition = imageStyle.objectPosition;
+        art.style.filter = getComputedStyle(frame).filter;
         art.append(clone);
         veil.append(art);
         const scale = Math.max(innerWidth / rect.width, innerHeight / rect.height) * 1.04;
         art.animate([
           {transform:'translate(0,0) scale(1)',opacity:1},
           {transform:`translate(${innerWidth/2-rect.left-rect.width/2}px,${innerHeight/2-rect.top-rect.height/2}px) scale(${scale})`,opacity:0}
-        ], {duration:900,easing:'cubic-bezier(.22,.65,.3,1)',fill:'forwards'});
+        ], {duration:1200,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
       }
-      veil.animate([{backgroundColor:'rgba(0,0,0,0)'},{backgroundColor:'#000000'}], {duration:650,fill:'forwards'});
-      navigationTimer = setTimeout(() => location.assign(href), 930);
+      veil.animate([{backgroundColor:'rgba(0,0,0,0)'},{backgroundColor:'#000000'}], {duration:1000,fill:'forwards'});
+      navigationTimer = setTimeout(() => location.assign(href), 1230);
     }
   };
 
