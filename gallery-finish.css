@@ -115,9 +115,9 @@ html body.gallery-design .home-framework figcaption {font-family:var(--gallery-p
 html[dir="rtl"] body.gallery-design .home-framework figcaption {text-align:right}
 @media(max-width:600px) {html body.gallery-design .home-framework {width:calc(100% - 32px);margin:40px auto 56px}}
 
-/* Matching door frames, sized to Room I; preserve every artwork's full proportions. */
+/* Matching frames use the tallest source ratio so all complete artworks fill the same width. */
 html body.gallery-design #main-content .era-card .era-image-wrap {
-  aspect-ratio:1600 / 1407!important;
+  aspect-ratio:621 / 605!important;
   background:#000!important;
   overflow:visible!important;
 }
