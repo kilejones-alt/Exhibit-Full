@@ -114,3 +114,17 @@ html body.gallery-design .home-framework-art img {display:block;width:100%;heigh
 html body.gallery-design .home-framework figcaption {font-family:var(--gallery-prose,Georgia,serif);font-size:1rem;line-height:1.5;color:#aaa7a2;text-align:left;margin:36px 0 0}
 html[dir="rtl"] body.gallery-design .home-framework figcaption {text-align:right}
 @media(max-width:600px) {html body.gallery-design .home-framework {width:calc(100% - 32px);margin:40px auto 56px}}
+
+/* Matching door frames, sized to Room I; preserve every artwork's full proportions. */
+html body.gallery-design #main-content .era-card .era-image-wrap {
+  aspect-ratio:1600 / 1407!important;
+  background:#000!important;
+  overflow:visible!important;
+}
+html body.gallery-design #main-content .era-card .era-image-wrap .responsive-art-picture {
+  overflow:visible!important;
+}
+html body.gallery-design #main-content .era-card .era-image-wrap img.era-image {
+  object-fit:contain!important;
+  object-position:center!important;
+}
