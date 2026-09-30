@@ -153,7 +153,9 @@
     const context = document.querySelector('.home-source-context');
     if (!context || context.dataset.nayaUpdated === '1') return;
     context.dataset.nayaUpdated = '1';
+    const framework = document.querySelector('.home-framework');
     context.innerHTML = '<h2>The Three Eras of Jew-Hatred</h2>' + erasMarkup();
+    if (framework) context.querySelector('.era-source-section').before(framework);
   }
 
   function updateAntisemitismPage() {

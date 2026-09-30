@@ -64,3 +64,8 @@ html body.gallery-design .site-brand-link {top:24px!important;right:24px!importa
   html body.gallery-design #main-content.home-main {padding-top:160px!important}
   html body.gallery-design #gallery .hero-section {padding-top:175px!important}
 }
+
+/* Compact music and language controls, with an accessible icon-only audio button. */
+html body.gallery-design .controls-nav {column-gap:9px!important}
+html body.gallery-design .controls-nav .nav-box {gap:6px!important}
+html body.gallery-design .controls-nav #audio-btn {font-size:20px!important;min-width:28px!important;justify-content:center;padding:0 3px!important}

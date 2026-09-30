@@ -152,7 +152,7 @@
   document.head.appendChild(css);
 
   const naya = document.createElement('script');
-  naya.src = 'naya-updates.js?v=20260929-public-clean';
+  naya.src = 'naya-updates.js?v=20260929-entry-polish';
   naya.defer = true;
   naya.dataset.exhibitProductionLayer = 'naya-content';
   naya.onload = function(){

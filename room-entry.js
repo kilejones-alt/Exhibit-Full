@@ -21,7 +21,7 @@
     clearTimeout(navigationTimer);
   };
   // An interrupted animation must never leave the exhibition hidden.
-  const safetyTimer = setTimeout(clear, 4500);
+  const safetyTimer = setTimeout(clear, 6500);
   addEventListener('pageshow', event => { if (event.persisted) clear(); });
   addEventListener('pagehide', () => { clearTimeout(safetyTimer); clearTimeout(navigationTimer); });
 
@@ -59,10 +59,10 @@
         art.animate([
           {transform:'translate(0,0) scale(1)',opacity:1},
           {transform:`translate(${innerWidth/2-rect.left-rect.width/2}px,${innerHeight/2-rect.top-rect.height/2}px) scale(${scale})`,opacity:0}
-        ], {duration:1200,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+        ], {duration:1700,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
       }
-      veil.animate([{backgroundColor:'rgba(0,0,0,0)'},{backgroundColor:'#000000'}], {duration:1000,fill:'forwards'});
-      navigationTimer = setTimeout(() => location.assign(href), 1230);
+      veil.animate([{backgroundColor:'rgba(0,0,0,0)'},{backgroundColor:'#000000'}], {duration:1500,fill:'forwards'});
+      navigationTimer = setTimeout(() => location.assign(href), 1730);
     }
   };
 
@@ -82,7 +82,7 @@
     root.classList.remove('room-arriving');
     scrollTo(0, 0);
     label.animate([{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}], {duration:650,fill:'forwards',easing:'ease-out'});
-    title.animate([{opacity:1},{opacity:0}], {delay:850,duration:600,fill:'forwards'}).finished.then(() => {
+    title.animate([{opacity:1},{opacity:0}], {delay:1850,duration:1300,fill:'forwards'}).finished.then(() => {
       title.remove();
       clearTimeout(safetyTimer);
       if (heading && document.activeElement === document.body) {

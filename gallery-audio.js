@@ -14,7 +14,9 @@
     if (!audio || !button) return;
     const words = labels[document.documentElement.lang] || labels.en;
     const playing = !audio.paused;
-    button.textContent = playing ? words[1] : get(wantedKey) === '0' ? words[0] : words[2];
+    button.textContent = '♪';
+    button.setAttribute('aria-label', playing ? words[1] : words[2]);
+    button.title = playing ? words[1] : words[2];
     button.setAttribute('aria-pressed', String(playing));
     button.classList.toggle('is-playing', playing);
   }
