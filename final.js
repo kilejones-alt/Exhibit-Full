@@ -161,7 +161,7 @@
     museum.defer = true;
     museum.dataset.exhibitProductionLayer = 'museum-ux';
     const locales = document.createElement('script');
-    locales.src = 'gallery-locales.js?v=20261011-no-image-descriptions';
+    locales.src = 'gallery-locales.js?v=20261011-preserve-door-media-20261011-no-image-descriptions';
     const startMuseum = () => document.head.appendChild(museum);
     locales.onload = startMuseum;
     locales.onerror = startMuseum;
