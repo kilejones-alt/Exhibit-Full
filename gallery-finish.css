@@ -128,3 +128,22 @@ html body.gallery-design #main-content .era-card .era-image-wrap img.era-image {
   object-fit:contain!important;
   object-position:center!important;
 }
+
+/* Remove the added rail and artwork navigation badges. */
+html body.gallery-design #museum-wayfinder,
+html body.gallery-design .chronology-rail,
+html body.gallery-design .timeline-marker,
+html body.gallery-design .click-hint,
+html body.gallery-design .museum-object-link,
+html body.gallery-design #main-content .era-card .room-pill,
+html body.gallery-design #main-content .era-arrow {display:none!important}
+html body.gallery-design #gallery::before,
+html body.gallery-design #gallery::after,
+html body.gallery-design .timeline-section::before,
+html body.gallery-design .timeline-section::after,
+html body.gallery-design .timeline-section .exhibition-container::after,
+html body.gallery-design .info-panel::before,
+html body.gallery-design .info-block::before,
+html body.gallery-design .info-block::after {display:none!important;content:none!important}
+html body.gallery-design .info-block,
+html body.gallery-design .history-panel {border-left:0!important;border-right:0!important}
