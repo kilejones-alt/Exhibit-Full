@@ -70,7 +70,7 @@
     });
 
     document.querySelectorAll('[data-en][data-he][data-ru]').forEach(element => {
-      if (element.id !== 'audio-btn') element.textContent = textFor(element, lang);
+      if (element.id !== 'audio-btn' && !element.querySelector('img,picture,svg,video')) element.textContent = textFor(element, lang);
     });
     document.querySelectorAll('.era-arrow').forEach(arrow => { arrow.textContent = lang === 'he' ? '←' : '→'; });
     document.querySelectorAll('[data-aria-en][data-aria-he][data-aria-ru]').forEach(element => {

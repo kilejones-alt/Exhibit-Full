@@ -147,3 +147,6 @@ html body.gallery-design .info-block::before,
 html body.gallery-design .info-block::after {display:none!important;content:none!important}
 html body.gallery-design .info-block,
 html body.gallery-design .history-panel {border-left:0!important;border-right:0!important}
+
+html body.gallery-design #main-content .desktop-connector,
+html body.gallery-design #main-content .mobile-node {display:none!important}
